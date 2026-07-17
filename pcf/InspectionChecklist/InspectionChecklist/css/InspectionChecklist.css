@@ -1,0 +1,90 @@
+.cp-checklist-root {
+  font-family: "Segoe UI", "Calibri", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 0;
+}
+
+.cp-section {
+  border: 1px solid var(--cp-section-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.cp-section-title {
+  background-color: var(--cp-section-color);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 6px 10px;
+}
+
+.cp-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.cp-table th {
+  background-color: var(--cp-section-color);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cp-row:nth-child(odd) {
+  background-color: var(--cp-section-light);
+}
+
+.cp-row:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.cp-cell {
+  border: 1px solid #e0e0e0;
+  padding: 6px 8px;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.cp-cell-readonly {
+  font-weight: 600;
+  color: #242424;
+}
+
+.cp-cell-question {
+  font-weight: 400;
+  color: #424242;
+}
+
+.cp-cell-notes {
+  min-width: 180px;
+}
+
+.cp-notes-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.cp-row-status {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.cp-row-error {
+  color: #d13438;
+  font-weight: 700;
+  cursor: help;
+}
+
+.cp-row-pending td {
+  padding: 10px;
+  color: #616161;
+}

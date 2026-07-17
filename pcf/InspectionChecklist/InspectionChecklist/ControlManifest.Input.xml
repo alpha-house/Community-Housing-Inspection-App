@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="AlphaHouse" constructor="InspectionChecklist" version="0.0.1" display-name-key="InspectionChecklist" description-key="InspectionChecklist description" control-type="virtual" >
+    <!--external-service-usage node declares whether this 3rd party PCF control is using external service or not, if yes, this control will be considered as premium and please also add the external domain it is using.
+    If it is not using any external service, please set the enabled="false" and DO NOT add any domain below. The "enabled" will be false by default.
+    Example1:
+      <external-service-usage enabled="true">
+        <domain>www.Microsoft.com</domain>
+      </external-service-usage>
+    Example2:
+      <external-service-usage enabled="false">
+      </external-service-usage>
+    -->
+    <external-service-usage enabled="false">
+      <!--UNCOMMENT TO ADD EXTERNAL DOMAINS
+      <domain></domain>
+      <domain></domain>
+      -->
+    </external-service-usage>
+    <!-- Bind this to the cp_inspectionitem subgrid on the cp_communityhousinginspection form. -->
+    <data-set name="inspectionItems" display-name-key="Inspection_Line_Items">
+    </data-set>
+
+    <!-- Logical names are configurable so the control keeps working if the schema is renamed;
+         defaults match Dataverse-Schema-Spec.md exactly, so most makers won't need to touch these. -->
+    <property name="childEntityLogicalName" display-name-key="Child_Entity_Logical_Name" description-key="Logical name of the checklist line-item table" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_inspectionitem" />
+    <property name="parentLookupFieldLogicalName" display-name-key="Parent_Lookup_Field" description-key="Logical name of the lookup on the child table back to the inspection header" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_inspection" />
+    <property name="parentLookupNavigationPropertyName" display-name-key="Parent_Lookup_Navigation_Property" description-key="Exact-cased OData navigation property name for the parent lookup (used in @odata.bind) - check EntityDefinitions(...)/ManyToOneRelationships if this ever needs to change, it does not always match the lowercase logical name" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_Inspection" />
+    <property name="lineNumberFieldLogicalName" display-name-key="Line_Number_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_linenumber" />
+    <property name="areaFieldLogicalName" display-name-key="Area_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_area" />
+    <property name="itemFieldLogicalName" display-name-key="Item_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_item" />
+    <property name="questionFieldLogicalName" display-name-key="Question_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_specificinspectionquestions" />
+    <property name="conditionFieldLogicalName" display-name-key="Condition_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_condition" />
+    <property name="photoTakenFieldLogicalName" display-name-key="Photo_Taken_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_phototaken" />
+    <property name="repairRequestFieldLogicalName" display-name-key="Repair_Request_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_repairrequestsubmitted" />
+    <property name="notesFieldLogicalName" display-name-key="Notes_Field" of-type="SingleLine.Text" usage="input" required="true" default-value="cp_notesandexactlocation" />
+
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.14.0" />
+      <platform-library name="Fluent" version="9.46.2" />
+      <css path="css/InspectionChecklist.css" order="1" />
+    </resources>
+    <feature-usage>
+      <uses-feature name="WebAPI" required="true" />
+      <uses-feature name="Utility" required="true" />
+    </feature-usage>
+  </control>
+</manifest>

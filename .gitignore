@@ -1,0 +1,14 @@
+# OS junk files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Office lock/temp files
+~$*
+*.tmp
+
+# Editor/backup files
+*.bak
+*.swp
