@@ -65,6 +65,8 @@ export const ChecklistRow: React.FC<ChecklistRowProps> = ({
       <td className="cp-cell cp-cell-readonly cp-cell-question">{template.questionLabel}</td>
       <td className="cp-cell">
         <Dropdown
+          className="cp-dropdown-full"
+          style={{ width: "100%", minWidth: 0 }}
           disabled={isDisabled}
           placeholder="Select..."
           value={selectedOption?.label ?? ""}
@@ -101,6 +103,8 @@ export const ChecklistRow: React.FC<ChecklistRowProps> = ({
       <td className="cp-cell cp-cell-notes">
         <div className="cp-notes-wrap">
           <Textarea
+            className="cp-notes-textarea"
+            style={{ width: "100%", minWidth: 0 }}
             disabled={isDisabled}
             resize="vertical"
             value={notesDraft}

@@ -210,6 +210,15 @@ export const ChecklistApp: React.FC<ChecklistAppProps> = ({ context, fields }) =
           >
             <div className="cp-section-title">{section.title.toUpperCase()}</div>
             <table className="cp-table">
+              <colgroup>
+                <col style={{ width: "8%" }} />
+                <col style={{ width: "12%" }} />
+                <col style={{ width: "30%" }} />
+                <col style={{ width: "10%" }} />
+                {showPhotoTaken && <col style={{ width: "9%" }} />}
+                <col style={{ width: "12%" }} />
+                <col />
+              </colgroup>
               <thead>
                 <tr>
                   <th>Area</th>

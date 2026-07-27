@@ -50,6 +50,9 @@
   padding: 6px 8px;
   font-size: 12px;
   vertical-align: top;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .cp-cell-readonly {
@@ -60,10 +63,21 @@
 .cp-cell-question {
   font-weight: 400;
   color: #424242;
+  max-height: 110px;
+  overflow-y: auto;
 }
 
 .cp-cell-notes {
   min-width: 180px;
+}
+
+.cp-dropdown-full {
+  max-width: 100%;
+}
+
+.cp-notes-textarea {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .cp-notes-wrap {
