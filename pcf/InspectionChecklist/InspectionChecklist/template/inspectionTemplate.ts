@@ -45,6 +45,7 @@ export const AREA_VALUE = {
   Laundry: 121570005,
   BalconyPatio: 121570006,
   General: 121570007,
+  Bedroom2: 121570008,
 } as const;
 
 export const ITEM_VALUE = {
@@ -180,6 +181,20 @@ export const SECTIONS: SectionTemplate[] = [
       { lineNumber: 34, areaLabel: "Bedroom", areaValue: AREA_VALUE.Bedroom, itemLabel: "Closet", itemValue: ITEM_VALUE.Closet, questionLabel: "Shelves secure? Doors functioning? Damage inside closet?", questionValue: 121570033, conditionType: GFP, hasPhotoTaken: true },
       { lineNumber: 35, areaLabel: "Bedroom", areaValue: AREA_VALUE.Bedroom, itemLabel: "Light Fixture", itemValue: ITEM_VALUE.LightFixtures, questionLabel: "Bulb functioning? Fixture damaged?", questionValue: 121570034, conditionType: GFP, hasPhotoTaken: true },
       { lineNumber: 36, areaLabel: "Bedroom", areaValue: AREA_VALUE.Bedroom, itemLabel: "Smoke Detector", itemValue: ITEM_VALUE.SmokeDetector, questionLabel: "Tested and operational?", questionValue: 121570035, conditionType: PF, hasPhotoTaken: true },
+    ],
+  },
+  {
+    key: "bedroom2",
+    title: "Bedroom #2",
+    color: "#5B9BD5",
+    lightColor: "#E8F1FA",
+    rows: [
+      { lineNumber: 42, areaLabel: "Bedroom-2", areaValue: AREA_VALUE.Bedroom2, itemLabel: "Flooring", itemValue: ITEM_VALUE.Flooring, questionLabel: "Carpet stains, burns, odours, scratches?", questionValue: 121570030, conditionType: GFP, hasPhotoTaken: true },
+      { lineNumber: 43, areaLabel: "Bedroom-2", areaValue: AREA_VALUE.Bedroom2, itemLabel: "Walls", itemValue: ITEM_VALUE.Walls, questionLabel: "Holes, dents, marks, paint damage?", questionValue: 121570031, conditionType: GFP, hasPhotoTaken: true },
+      { lineNumber: 44, areaLabel: "Bedroom-2", areaValue: AREA_VALUE.Bedroom2, itemLabel: "Windows", itemValue: ITEM_VALUE.Windows, questionLabel: "Locks working? Cracked glass? Screen damaged?", questionValue: 121570032, conditionType: GFP, hasPhotoTaken: true },
+      { lineNumber: 45, areaLabel: "Bedroom-2", areaValue: AREA_VALUE.Bedroom2, itemLabel: "Closet", itemValue: ITEM_VALUE.Closet, questionLabel: "Shelves secure? Doors functioning? Damage inside closet?", questionValue: 121570033, conditionType: GFP, hasPhotoTaken: true },
+      { lineNumber: 46, areaLabel: "Bedroom-2", areaValue: AREA_VALUE.Bedroom2, itemLabel: "Light Fixture", itemValue: ITEM_VALUE.LightFixtures, questionLabel: "Bulb functioning? Fixture damaged?", questionValue: 121570034, conditionType: GFP, hasPhotoTaken: true },
+      { lineNumber: 47, areaLabel: "Bedroom-2", areaValue: AREA_VALUE.Bedroom2, itemLabel: "Smoke Detector", itemValue: ITEM_VALUE.SmokeDetector, questionLabel: "Tested and operational?", questionValue: 121570035, conditionType: PF, hasPhotoTaken: true },
     ],
   },
   {
