@@ -5,6 +5,7 @@ import { ALL_ROWS, SECTIONS } from "../template/inspectionTemplate";
 import { ChecklistRow } from "./ChecklistRow";
 import { FieldNames, ModeWithContextInfo, RowEditState } from "./types";
 import { saveField, seedMissingRows } from "./dataverseClient";
+import { coerceBooleanValue, coerceChoiceValue, coerceStringValue } from "./coerce";
 
 export interface ChecklistAppProps {
   context: ComponentFramework.Context<IInputs>;
@@ -121,10 +122,10 @@ export const ChecklistApp: React.FC<ChecklistAppProps> = ({ context, fields }) =
           changed = true;
           next[id] = {
             recordId: id,
-            condition: (record.getValue(fields.condition) as number) ?? null,
-            photoTaken: (record.getValue(fields.photoTaken) as boolean) ?? null,
-            repairRequestSubmitted: (record.getValue(fields.repairRequest) as boolean) ?? null,
-            notes: (record.getValue(fields.notes) as string) ?? "",
+            condition: coerceChoiceValue(record.getValue(fields.condition)),
+            photoTaken: coerceBooleanValue(record.getValue(fields.photoTaken)),
+            repairRequestSubmitted: coerceBooleanValue(record.getValue(fields.repairRequest)),
+            notes: coerceStringValue(record.getValue(fields.notes)),
             saving: false,
             error: null,
           };

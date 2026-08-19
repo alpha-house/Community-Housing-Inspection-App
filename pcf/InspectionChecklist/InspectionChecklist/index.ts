@@ -2,6 +2,7 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import { ChecklistApp, ChecklistAppProps } from "./components/ChecklistApp";
 import { readFieldNames } from "./components/types";
 import * as React from "react";
+import { FluentProvider, webLightTheme } from "@fluentui/react-components";
 
 export class InspectionChecklist implements ComponentFramework.ReactControl<IInputs, IOutputs> {
     private notifyOutputChanged: () => void;
@@ -24,7 +25,11 @@ export class InspectionChecklist implements ComponentFramework.ReactControl<IInp
             context,
             fields: readFieldNames(context),
         };
-        return React.createElement(ChecklistApp, props);
+        return React.createElement(
+            FluentProvider,
+            { theme: webLightTheme, style: { background: "none" } },
+            React.createElement(ChecklistApp, props)
+        );
     }
 
     public getOutputs(): IOutputs {
