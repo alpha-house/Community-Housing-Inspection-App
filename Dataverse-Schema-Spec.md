@@ -36,7 +36,7 @@ Keep these columns as originally specified:
 | `cp_area` | Choice | Same 8 values as originally specified (Entry…General), plus `"Bedroom-2": 121570008` (added for the second bedroom section — see §5). |
 | `cp_item` | Choice | Same value set as originally specified, plus `"Walls/Ceiling": 121570006` (added to fill the gap for Bathroom row 7 — see note below). |
 | `cp_specificinspectionquestions` | Choice | Same 41 values as originally specified. |
-| `cp_condition` | Choice | Same value set (Good/Fair/Poor/Pass/Fail/Yes/No). Only the subset relevant to each row is shown in the PCF (e.g. smoke detectors only offer Pass/Fail). |
+| `cp_condition` | Choice | Same value set (Good/Fair/Poor/Pass/Fail/Yes/No), plus `"N/A": 121570007`. Only the subset relevant to each row's condition type is shown in the PCF (e.g. smoke detectors only offer Pass/Fail), but N/A is appended to every row regardless of type — it's the only way to clear a Condition back to a blank-equivalent state, since the Dropdown control has no "clear selection" gesture of its own. |
 | `cp_phototaken` | Yes/No | **Leave unrequired.** The 5 "Additional Common Areas" rows (Laundry, Balcony/Patio ×2, General ×2) have no Photo Taken column in the template — the PCF hides the control for those rows and leaves the value null. |
 | `cp_repairrequestsubmitted` | Yes/No | Radio button interface, as originally specified. |
 | `cp_notesandexactlocation` | Multiple lines of text | |

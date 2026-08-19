@@ -18,21 +18,32 @@ export const CONDITION_VALUE = {
   Fail: 121570004,
   Yes: 121570005,
   No: 121570006,
+  NotApplicable: 121570007,
 } as const;
+
+/**
+ * "N/A" is appended to every condition type's option list (not just its own type) so users
+ * always have a way to clear a previously-selected Condition back to a blank-equivalent state
+ * - the Dropdown itself has no "clear selection" gesture, so N/A stands in for null.
+ */
+const NOT_APPLICABLE_OPTION = { label: "N/A", value: CONDITION_VALUE.NotApplicable };
 
 export const CONDITION_OPTIONS: Record<ConditionType, { label: string; value: number }[]> = {
   [ConditionType.GoodFairPoor]: [
     { label: "Good", value: CONDITION_VALUE.Good },
     { label: "Fair", value: CONDITION_VALUE.Fair },
     { label: "Poor", value: CONDITION_VALUE.Poor },
+    NOT_APPLICABLE_OPTION,
   ],
   [ConditionType.PassFail]: [
     { label: "Pass", value: CONDITION_VALUE.Pass },
     { label: "Fail", value: CONDITION_VALUE.Fail },
+    NOT_APPLICABLE_OPTION,
   ],
   [ConditionType.YesNo]: [
     { label: "Yes", value: CONDITION_VALUE.Yes },
     { label: "No", value: CONDITION_VALUE.No },
+    NOT_APPLICABLE_OPTION,
   ],
 };
 
