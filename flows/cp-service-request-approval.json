@@ -208,7 +208,7 @@
                     "Approved",
                     "Rejected"
                   ],
-                  "WebhookApprovalCreationInput/title": "@{outputs('Get_CSR_by_ID')?['body/cp_communityservicerequestname']} - Service Request Approval Request",
+                  "WebhookApprovalCreationInput/title": "@{outputs('Get_CSR_by_ID')?['body/cp_communityservicerequestname']} - Service Request Approval",
                   "WebhookApprovalCreationInput/assignedTo": "@outputs('join_emails_with_semicolon')",
                   "WebhookApprovalCreationInput/details": "Service Request Approval is requested by @{outputs('Get_owner_by_ID')?['body/fullname']}. Please read these comments for more information: @{triggerOutputs()?['body/cp_submitterscomments']}",
                   "WebhookApprovalCreationInput/itemLink": "@{parameters('CSR Environment Url and App ID (cp_CSREnvironmentUrlandAppID)')}@{triggerOutputs()?['body/cp_communityservicerequestid']}",
@@ -247,9 +247,9 @@
                             "parameters": {
                               "entityName": "cp_communityservicerequests",
                               "recordId": "@triggerOutputs()?['body/cp_communityservicerequestid']",
-                              "item/cp_approvalstatus": 121570001,
                               "item/cp_approverscomments": "@items('For_each')?['comments']",
-                              "item/cp_requestapproval": false
+                              "item/cp_requestapproval": false,
+                              "item/cp_srapprovalstatus": 121570001
                             },
                             "host": {
                               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
@@ -283,7 +283,7 @@
                             "parameters": {
                               "emailMessage/To": "@outputs('Get_CSR_Creator')?['body/domainname']",
                               "emailMessage/Subject": "Review Comments",
-                              "emailMessage/Body": "<p class=\"editor-paragraph\">Hello,</p><br><p class=\"editor-paragraph\">@{items('For_each')?['comments']}</p><br><p class=\"editor-paragraph\">Thank you.</p>",
+                              "emailMessage/Body": "<p class=\"editor-paragraph\">Hello,</p><br><p class=\"editor-paragraph\">Please see comments for the Community Housing Service Repair Request you submitted.</p><br><p class=\"editor-paragraph\">See comments below:</p><p class=\"editor-paragraph\">@{items('For_each')?['comments']}</p><br><p class=\"editor-paragraph\">Please click the link below to modify your request:</p><p class=\"editor-paragraph\">@{parameters('CSR Environment Url and App ID (cp_CSREnvironmentUrlandAppID)')}@{triggerOutputs()?['body/cp_communityservicerequestid']}</p><br><p class=\"editor-paragraph\">Thank you.</p>",
                               "emailMessage/Importance": "Normal"
                             },
                             "host": {
@@ -315,9 +315,9 @@
                             "parameters": {
                               "entityName": "cp_communityservicerequests",
                               "recordId": "@triggerOutputs()?['body/cp_communityservicerequestid']",
-                              "item/cp_approvalstatus": 121570002,
                               "item/cp_approverscomments": "@items('For_each_1')?['comments']",
-                              "item/cp_requestapproval": false
+                              "item/cp_requestapproval": false,
+                              "item/cp_srapprovalstatus": 121570002
                             },
                             "host": {
                               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
@@ -343,9 +343,9 @@
                             "parameters": {
                               "entityName": "cp_communityservicerequests",
                               "recordId": "@triggerOutputs()?['body/cp_communityservicerequestid']",
-                              "item/cp_approvalstatus": 121570003,
                               "item/cp_approverscomments": "@items('For_each_2')?['comments']",
-                              "item/cp_requestapproval": false
+                              "item/cp_requestapproval": false,
+                              "item/cp_srapprovalstatus": 121570003
                             },
                             "host": {
                               "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
@@ -364,6 +364,63 @@
                 "Start_and_wait_for_an_approval": [
                   "Succeeded"
                 ]
+              }
+            },
+            "Find_responder_staff": {
+              "type": "OpenApiConnection",
+              "runAfter": {
+                "Switch": [
+                  "Succeeded"
+                ]
+              },
+              "inputs": {
+                "parameters": {
+                  "entityName": "cp_staffs",
+                  "$select": "cp_staffid",
+                  "$filter": "cp_email eq '@{replace(first(outputs('Start_and_wait_for_an_approval')?['body/responses'])?['responder']?['email'], '''', '''''')}'",
+                  "$top": 1
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Condition_responder_is_staff": {
+              "type": "If",
+              "runAfter": {
+                "Find_responder_staff": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "greater": [
+                  "@length(outputs('Find_responder_staff')?['body/value'])",
+                  0
+                ]
+              },
+              "else": {
+                "actions": {}
+              },
+              "actions": {
+                "Update_Approved_By": {
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "entityName": "cp_communityservicerequests",
+                      "recordId": "@triggerOutputs()?['body/cp_communityservicerequestid']",
+                      "item/cp_ApprovedBy@odata.bind": "cp_staffs(@{first(outputs('Find_responder_staff')?['body/value'])?['cp_staffid']})"
+                    },
+                    "host": {
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
               }
             }
           },

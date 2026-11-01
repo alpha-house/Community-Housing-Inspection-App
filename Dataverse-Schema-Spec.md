@@ -120,7 +120,7 @@ components below live in the `CommunityHousingInspection` solution.
 
 | Component | Name | Notes |
 |---|---|---|
-| Choice column on `cp_communityservicerequest` | `cp_approvalstatus` (Approval Status) | Local choice, same values as `cp_irapprovalstatus`: `121570000` Pending Approval, `121570001` Needs Review, `121570002` Approved, `121570003` Rejected |
+| Choice column on `cp_communityservicerequest` | `cp_srapprovalstatus` (SR Approval Status) | Uses the global `cp_irapprovalstatus` choice: `121570000` Pending Approval, `121570001` Needs Review, `121570002` Approved, `121570003` Rejected |
 | Environment variable (Text) | `cp_CSREnvironmentUrlandAppID` | Record-link prefix for the approval. Default points at the sandbox Community Housing Inspection app — **set the production value on deploy** |
 
 ### Flow behaviour
@@ -133,6 +133,24 @@ components below live in the `CommunityHousingInspection` solution.
   emails are joined with `;`.
 - **Approval:** custom responses Needs Review / Approved / Rejected. Details show
   `cp_submitterscomments`; the item link is `cp_CSREnvironmentUrlandAppID` + record id.
-- **Outcome:** writes `cp_approverscomments`, sets `cp_approvalstatus`, resets
+- **Outcome:** writes `cp_approverscomments`, sets `cp_srapprovalstatus`, resets
   `cp_requestapproval = false`. Needs Review also emails the comments to the record creator.
   Unlike the incident report flow, Approved does **not** deactivate the record.
+- **Approved By:** for any outcome, the responder's email is matched to `cp_staff.cp_email`
+  and the matching staff row is written to the `cp_approvedby` lookup. If no staff row
+  matches, `cp_approvedby` is left unchanged.
+
+## 7. Primary name (`Community Service Request - Set Name` flow)
+
+Sets `cp_communityservicerequestname` to
+`<cp_participant.fullname> - <cp_participantaddress> - <createdon>`. Definition exported to
+[`flows/community-service-request-set-name.json`](flows/community-service-request-set-name.json).
+
+- **Trigger:** `cp_communityservicerequest` added, or modified on `cp_participant` /
+  `cp_participantaddress`. Writing the name doesn't touch either column, so there is no loop.
+- **Participant:** contact `fullname`; left blank if no participant is set.
+- **Address:** line breaks replaced with `, ` so the name stays on one line.
+- **createdon:** converted from UTC to Mountain time, formatted `yyyy-MM-dd h:mm tt`.
+- **Length:** truncated to 850 characters (column max).
+- The older `Set Name - Community Service Request` flow also writes this column on modify
+  (without createdon) and should be turned off to avoid the two flows overwriting each other.
