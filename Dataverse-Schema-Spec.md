@@ -108,3 +108,31 @@ New rows got line numbers 42–47 (continuing after the existing max of 41) rath
 renumbering Additional Common Areas out of the way, specifically to avoid breaking the
 `cp_linenumber` matching for line items that already existed in production records before
 this change.
+
+## 6. Service request approval (`cp Service Request Approval` flow)
+
+Approval workflow for `cp_communityservicerequest`, modelled on the `Incident Report Approval
+Request` flow. The flow definition is exported to
+[`flows/cp-service-request-approval.json`](flows/cp-service-request-approval.json); all
+components below live in the `CommunityHousingInspection` solution.
+
+### Schema additions
+
+| Component | Name | Notes |
+|---|---|---|
+| Choice column on `cp_communityservicerequest` | `cp_approvalstatus` (Approval Status) | Local choice, same values as `cp_irapprovalstatus`: `121570000` Pending Approval, `121570001` Needs Review, `121570002` Approved, `121570003` Rejected |
+| Environment variable (Text) | `cp_CSREnvironmentUrlandAppID` | Record-link prefix for the approval. Default points at the sandbox Community Housing Inspection app — **set the production value on deploy** |
+
+### Flow behaviour
+
+- **Trigger:** `cp_communityservicerequest` modified, filtered on `cp_requestapproval`.
+- **Gate:** continue only if the row is new (`createdon = modifiedon`) or
+  `cp_requestapproval = true` — identical to the incident report flow.
+- **Recipients:** every `cp_servicerequestapprover` row (no service matching — the flow is
+  service independent). Each `cp_approver` (→ `cp_staff`) is resolved to `cp_email` and the
+  emails are joined with `;`.
+- **Approval:** custom responses Needs Review / Approved / Rejected. Details show
+  `cp_submitterscomments`; the item link is `cp_CSREnvironmentUrlandAppID` + record id.
+- **Outcome:** writes `cp_approverscomments`, sets `cp_approvalstatus`, resets
+  `cp_requestapproval = false`. Needs Review also emails the comments to the record creator.
+  Unlike the incident report flow, Approved does **not** deactivate the record.
