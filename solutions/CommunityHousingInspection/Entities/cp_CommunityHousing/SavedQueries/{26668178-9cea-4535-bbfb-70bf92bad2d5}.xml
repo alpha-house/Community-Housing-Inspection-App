@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{26668178-9cea-4535-bbfb-70bf92bad2d5}</savedqueryid>
+    <layoutxml>
+      <grid name="cp_communityhousings" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="cp_communityhousing" id="cp_communityhousingid">
+          <cell name="cp_name" width="200" />
+          <cell name="cp_pod" width="80" />
+          <cell name="cp_teamlead" width="125" />
+          <cell name="cp_buildingaddress" width="200" />
+          <cell name="cp_unitnumber" width="80" />
+          <cell name="cp_landlord" width="175" />
+          <cell name="cp_moveindate" width="110" />
+          <cell name="cp_leaseexpiry" width="110" />
+          <cell name="cp_rentamount" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_communityhousing">
+          <attribute name="cp_communityhousingid" />
+          <attribute name="cp_name" />
+          <attribute name="cp_pod" />
+          <attribute name="cp_teamlead" />
+          <attribute name="cp_buildingaddress" />
+          <attribute name="cp_unitnumber" />
+          <attribute name="cp_landlord" />
+          <attribute name="cp_moveindate" />
+          <attribute name="cp_leaseexpiry" />
+          <attribute name="cp_rentamount" />
+          <order attribute="cp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Community Housing Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

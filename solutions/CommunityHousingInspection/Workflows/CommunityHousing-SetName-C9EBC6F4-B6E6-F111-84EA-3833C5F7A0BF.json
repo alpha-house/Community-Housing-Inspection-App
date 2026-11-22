@@ -1,0 +1,141 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added_or_modified": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "cp_communityhousing",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "cp_client,cp_buildingaddress"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_Client_Name": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ClientName",
+                "type": "string",
+                "value": ""
+              }
+            ]
+          },
+          "runAfter": {}
+        },
+        "Condition_client_is_set": {
+          "type": "If",
+          "expression": {
+            "not": {
+              "equals": [
+                "@empty(triggerOutputs()?['body/_cp_client_value'])",
+                true
+              ]
+            }
+          },
+          "actions": {
+            "Get_client": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "contacts",
+                  "recordId": "@triggerOutputs()?['body/_cp_client_value']",
+                  "$select": "fullname"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              }
+            },
+            "Set_Client_Name": {
+              "type": "SetVariable",
+              "inputs": {
+                "name": "ClientName",
+                "value": "@{outputs('Get_client')?['body/fullname']}"
+              },
+              "runAfter": {
+                "Get_client": [
+                  "Succeeded"
+                ]
+              }
+            }
+          },
+          "else": {
+            "actions": {}
+          },
+          "runAfter": {
+            "Initialize_Client_Name": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Compose_Name": {
+          "type": "Compose",
+          "inputs": "@trim(concat(variables('ClientName'), ' ', coalesce(triggerOutputs()?['body/cp_buildingaddress'], '')))",
+          "runAfter": {
+            "Condition_client_is_set": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Update_a_row": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_communityhousings",
+              "recordId": "@triggerOutputs()?['body/cp_communityhousingid']",
+              "item/cp_name": "@{substring(outputs('Compose_Name'), 0, min(length(outputs('Compose_Name')), 200))}"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "UpdateOnlyRecord",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "Compose_Name": [
+              "Succeeded"
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

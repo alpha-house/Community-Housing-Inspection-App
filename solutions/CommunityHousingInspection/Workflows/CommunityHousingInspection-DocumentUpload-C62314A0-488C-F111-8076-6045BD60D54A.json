@@ -1,0 +1,196 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
+        },
+        "runtimeSource": "embedded"
+      },
+      "shared_sharepointonline": {
+        "api": {
+          "name": "shared_sharepointonline"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedsharepointonline_93f19"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "cp_communityhousinginspection",
+              "subscriptionRequest/scope": 4
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "2cb3b8f0-9eb2-4024-a939-e130228b6b2a"
+          }
+        }
+      },
+      "actions": {
+        "folder_name": {
+          "type": "Compose",
+          "inputs": "@replace(concat(outputs('Get_the_community_housing_inspection')?['body/cp_communityhousinginspectionname'], '_', outputs('Get_the_community_housing_inspection')?['body/cp_communityhousinginspectionid']), '/', '-')",
+          "runAfter": {
+            "Get_the_community_housing_inspection": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7b3e63a9-5f25-4534-8ba3-da1f3022bdf6"
+          }
+        },
+        "Get_folder_metadata_using_path": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "https://alphahousecalgaryca.sharepoint.com/sites/AlphaHouseSandbox",
+              "path": "/cp_communityhousinginspection"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "operationId": "GetFolderMetadataByPath",
+              "connectionName": "shared_sharepointonline"
+            }
+          },
+          "runAfter": {
+            "Create_new_folder": [
+              "Succeeded"
+            ]
+          }
+        },
+        "list_rows_-_default_site": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "sharepointsites",
+              "$filter": "absoluteurl eq 'https://alphahousecalgaryca.sharepoint.com/sites/AlphaHouseSandbox'",
+              "$top": 1
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "Get_folder_metadata_using_path": [
+              "Succeeded"
+            ]
+          }
+        },
+        "For_each": {
+          "type": "Foreach",
+          "foreach": "@outputs('list_rows_-_default_site')?['body/value']",
+          "actions": {
+            "Add_a_new_row": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "sharepointdocumentlocations",
+                  "item/name": "@outputs('folder_name')",
+                  "item/parentsiteorlocation_sharepointdocumentlocation@odata.bind": "@concat('/sharepointdocumentlocations(', first(outputs('List_library_location')?['body/value'])?['sharepointdocumentlocationid'], ')')",
+                  "item/regardingobjectid_cp_communityhousinginspection@odata.bind": "@concat('/cp_communityhousinginspections(', triggerOutputs()?['body/cp_communityhousinginspectionid'], ')')",
+                  "item/relativeurl": "@outputs('folder_name')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "List_library_location": [
+              "Succeeded"
+            ]
+          }
+        },
+        "List_library_location": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "sharepointdocumentlocations",
+              "$filter": "relativeurl eq 'cp_communityhousinginspection'",
+              "$top": 1
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "list_rows_-_default_site": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Create_new_folder": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "https://alphahousecalgaryca.sharepoint.com/sites/AlphaHouseSandbox",
+              "table": "69706644-e59b-4fb5-9743-6f00138216bf",
+              "parameters/path": "@outputs('folder_name')"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "operationId": "CreateNewFolder",
+              "connectionName": "shared_sharepointonline"
+            }
+          },
+          "runAfter": {
+            "folder_name": [
+              "Succeeded"
+            ]
+          }
+        },
+        "Get_the_community_housing_inspection": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cp_communityhousinginspections",
+              "recordId": "@triggerOutputs()?['body/cp_communityhousinginspectionid']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {}
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

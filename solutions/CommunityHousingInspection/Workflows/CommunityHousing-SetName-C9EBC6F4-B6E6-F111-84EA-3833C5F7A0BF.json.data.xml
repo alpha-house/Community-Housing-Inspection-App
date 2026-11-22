@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{c9ebc6f4-b6e6-f111-84ea-3833c5f7a0bf}" Name="Community Housing - Set Name" Description="Sets cp_name to '&lt;client full name&gt; &lt;building address&gt;' when a Community Housing row is added or cp_client / cp_buildingaddress changes." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/CommunityHousing-SetName-C9EBC6F4-B6E6-F111-84EA-3833C5F7A0BF.json</JsonFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>5</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <UniqueName>cp_CommunityHousingSetName</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.7</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>none</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Community Housing - Set Name" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Sets cp_name to '&lt;client full name&gt; &lt;building address&gt;' when a Community Housing row is added or cp_client / cp_buildingaddress changes." />
+  </Descriptions>
+</Workflow>

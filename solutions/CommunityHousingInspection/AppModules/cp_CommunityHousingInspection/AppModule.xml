@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>cp_CommunityHousingInspection</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="ahb_ahhelp" />
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="cp_communityhousinginspection" />
+    <AppModuleComponent type="1" schemaName="cp_communityservicerequest" />
+    <AppModuleComponent type="1" schemaName="cp_inspectionitem" />
+    <AppModuleComponent type="1" schemaName="cp_servicerequestapprover" />
+    <AppModuleComponent type="1" schemaName="cp_staff" />
+    <AppModuleComponent type="1" schemaName="entity" />
+    <AppModuleComponent type="26" id="{c17f502b-d9f1-4942-8dc0-639400ceba07}" />
+    <AppModuleComponent type="26" id="{89b12e75-89cf-4a76-9249-6807469a6e15}" />
+    <AppModuleComponent type="26" id="{26668178-9cea-4535-bbfb-70bf92bad2d5}" />
+    <AppModuleComponent type="26" id="{cd3ba5b4-e871-4588-9554-75280145809a}" />
+    <AppModuleComponent type="26" id="{af0abf46-403f-4503-ba94-c8625ef38e59}" />
+    <AppModuleComponent type="26" id="{e88bebcf-2ea8-4fad-8af1-cc407b02c4e7}" />
+    <AppModuleComponent type="26" id="{b919cb38-a2b8-471f-9527-fb304c12784c}" />
+    <AppModuleComponent type="60" id="{e715b298-b2e6-f111-84ea-7c1e5253ff0a}" />
+    <AppModuleComponent type="60" id="{55027fe3-4b53-4219-a572-99e5566a41df}" />
+    <AppModuleComponent type="62" schemaName="cp_CommunityHousingInspection" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{9dfdb7d6-5820-f011-9989-000d3af31ea9}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Community Housing Inspection" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="This app is used to create, store, process, and disclose Community Housing Inspection data." languagecode="1033" />
+  </Descriptions>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

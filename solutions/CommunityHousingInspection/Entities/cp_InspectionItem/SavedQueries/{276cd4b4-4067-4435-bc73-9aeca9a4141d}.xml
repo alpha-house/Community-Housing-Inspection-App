@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{276cd4b4-4067-4435-bc73-9aeca9a4141d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_inspectionitemname" select="1" icon="1" preview="1">
+        <row name="result" id="cp_inspectionitemid">
+          <cell name="cp_inspectionitemname" width="165" />
+          <cell name="cp_inspection" width="220" />
+          <cell name="cp_linenumber" width="116" />
+          <cell name="cp_area" width="100" />
+          <cell name="cp_item" width="100" />
+          <cell name="cp_specificinspectionquestions" width="208" />
+          <cell name="cp_condition" width="100" />
+          <cell name="cp_phototaken" width="111" />
+          <cell name="cp_repairrequestsubmitted" width="187" />
+          <cell name="cp_notesandexactlocation" width="186" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_inspectionitem">
+          <attribute name="cp_inspectionitemid" />
+          <attribute name="cp_area" />
+          <attribute name="cp_item" />
+          <attribute name="cp_specificinspectionquestions" />
+          <attribute name="cp_condition" />
+          <attribute name="cp_phototaken" />
+          <attribute name="cp_repairrequestsubmitted" />
+          <attribute name="cp_notesandexactlocation" />
+          <attribute name="cp_linenumber" />
+          <order attribute="cp_linenumber" descending="false" />
+          <attribute name="cp_inspection" />
+          <attribute name="cp_inspectionitemname" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inspection Items" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

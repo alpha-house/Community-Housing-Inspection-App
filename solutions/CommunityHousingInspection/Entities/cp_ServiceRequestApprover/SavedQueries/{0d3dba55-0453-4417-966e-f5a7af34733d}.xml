@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{0d3dba55-0453-4417-966e-f5a7af34733d}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_servicerequestapprovername" select="1" icon="1" preview="1">
+        <row name="result" id="cp_servicerequestapproverid">
+          <cell name="cp_approver" width="100" />
+          <cell name="a_65adcd2e94bc49a9af4454915bb3bb94.cp_jobtitle" width="156" />
+          <cell name="a_65adcd2e94bc49a9af4454915bb3bb94.cp_reportsto" width="169" />
+          <cell name="a_65adcd2e94bc49a9af4454915bb3bb94.cp_email" width="140" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_servicerequestapprover">
+          <attribute name="cp_servicerequestapproverid" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cp_approver" />
+          <link-entity alias="a_65adcd2e94bc49a9af4454915bb3bb94" name="cp_staff" to="cp_approver" from="cp_staffid" link-type="outer" visible="false">
+            <attribute name="cp_reportsto" />
+            <attribute name="cp_email" />
+            <attribute name="cp_jobtitle" />
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Service Request Approvers" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

@@ -1,0 +1,11 @@
+<dvtablesearch dvtablesearchid="ce839bf5-1182-f111-ab0e-7c1e528c9add">
+  <appmoduleuniquename>cp_CommunityHousingInspection</appmoduleuniquename>
+  <iscustomizable>1</iscustomizable>
+  <m365appmoduleid>
+    <uniquename>cp_CommunityHousingInspection</uniquename>
+  </m365appmoduleid>
+  <name>M365_Primary_model_cp_CommunityHousingInspection</name>
+  <searchtype>0</searchtype>
+  <statecode>1</statecode>
+  <statuscode>2</statuscode>
+</dvtablesearch>

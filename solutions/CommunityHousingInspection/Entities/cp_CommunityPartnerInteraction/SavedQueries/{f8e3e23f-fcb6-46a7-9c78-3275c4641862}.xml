@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{f8e3e23f-fcb6-46a7-9c78-3275c4641862}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="cp_name" select="1" icon="1" preview="1">
+        <row name="result" id="cp_communitypartnerinteractionid">
+          <cell name="cp_name" width="155" />
+          <cell name="cp_communitypartnercontact" width="198" />
+          <cell name="a_8a9132f333904ba7aceea711d2969c36.cp_partnerorganisation" width="327" />
+          <cell name="a_8a9132f333904ba7aceea711d2969c36.cp_role" width="238" />
+          <cell name="a_8a9132f333904ba7aceea711d2969c36.cp_email" width="245" />
+          <cell name="a_8a9132f333904ba7aceea711d2969c36.cp_phone" width="246" />
+          <cell name="cp_interactiondate" width="131" />
+          <cell name="cp_relatedahprograms" width="173" />
+          <cell name="cp_notes" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cp_communitypartnerinteraction">
+          <attribute name="cp_communitypartnerinteractionid" />
+          <attribute name="cp_name" />
+          <order attribute="cp_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cp_communitypartnercontact" />
+          <attribute name="cp_interactiondate" />
+          <attribute name="cp_relatedahprograms" />
+          <attribute name="cp_notes" />
+          <link-entity alias="a_8a9132f333904ba7aceea711d2969c36" name="cp_communitypartnercontact" to="cp_communitypartnercontact" from="cp_communitypartnercontactid" link-type="outer" visible="false">
+            <attribute name="cp_partnerorganisation" />
+            <attribute name="cp_role" />
+            <attribute name="cp_email" />
+            <attribute name="cp_phone" />
+          </link-entity>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Community Partner Interactions" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

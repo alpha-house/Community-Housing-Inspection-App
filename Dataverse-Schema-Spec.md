@@ -154,3 +154,59 @@ Sets `cp_communityservicerequestname` to
 - **Length:** truncated to 850 characters (column max).
 - The older `Set Name - Community Service Request` flow also writes this column on modify
   (without createdon) and should be turned off to avoid the two flows overwriting each other.
+
+## 8. `cp_communityhousing` (Community Housing — one row per client tenancy)
+
+Built from `docs/community_housing_clients.xlsx`. Columns that already exist on `contact`
+(HMIS ID → `cp_hmisfilenumber`, Client First/Last Name → `firstname`/`lastname`) are not
+duplicated. Building address and unit # live here, not on contact, because one client can
+have several tenancies (the sheet has "Rehouse" rows). The sheet's Email Address / Phone
+Number / Payment Address columns are the landlord's, so they are stored as landlord columns.
+
+| Sheet column | Column | Type |
+|---|---|---|
+| — | `cp_name` (Name, primary) | Single line of text, optional |
+| (client) | `cp_client` | Lookup → `contact`. Relationship `cp_contact_cp_communityhousing_Client` (1:N, delete = Remove Link) |
+| Pod | `cp_pod` | Choice, global `cp_pod`: Core `121570000`, HL `121570001`, NE `121570002`, NW `121570003`, SE `121570004`, SW `121570005` |
+| Team Lead | `cp_teamlead` | Lookup → `cp_staff`. Relationship `cp_cp_staff_cp_communityhousing_TeamLead` |
+| Client Unit # | `cp_unitnumber` | Single line of text (50) |
+| Client Building Address | `cp_buildingaddress` | Single line of text (250) |
+| Move-in Date | `cp_moveindate` | Date only |
+| Move-in Date (non-date values) | `cp_moveindateother` | Single line of text (100) — e.g. "Rehouse", "TBD" |
+| Lease Expiry | `cp_leaseexpiry` | Date only |
+| Lease Expiry (non-date values) | `cp_leaseexpiryother` | Single line of text (100) — e.g. "Month to Month" |
+| Rent Amount | `cp_rentamount` | Currency |
+| Client Amount | `cp_clientamount` | Currency |
+| Alpha Subsidy | `cp_alphasubsidy` | Currency |
+| Landlord | `cp_landlord` | Single line of text (200) |
+| Main Contact | `cp_maincontact` | Single line of text (100) |
+| Email Address | `cp_landlordemail` | Single line of text, Email format |
+| Phone Number | `cp_landlordphone` | Single line of text, Phone format |
+| Payment Address | `cp_paymentaddress` | Single line of text (250) |
+| EFT/Cheque | `cp_paymentmethod` | Choice, global `cp_paymentmethod`: EFT `121570000`, Cheque `121570001` |
+
+**Forms:** main form "Community Housing" (sections Client, Unit, Rent, Landlord) and
+"Community Housing Quick Create" (quick create is enabled on the table, so the contact's
+related Community Housing grid can add rows inline).
+
+**Views:** Active, Inactive, My, Advanced Find, Associated (shown on the contact's related
+tab), Lookup, and Quick Find. The table, both forms and all views are in the Community
+Housing Inspection app, with a sitemap entry after Contacts.
+
+**Quick Find search columns:** this org rejects `fetchxml` updates to the Quick Find view via
+the Web API (`0x80040216`), so only its grid columns were set programmatically. Its find
+columns are still just `cp_name` — add Building Address, Unit #, Landlord and Main Contact in
+the maker portal (table → Views → Quick Find → Find by).
+
+## 9. Primary name (`Community Housing - Set Name` flow)
+
+Sets `cp_communityhousing.cp_name` to `<cp_client.fullname> <cp_buildingaddress>`.
+Unique name `cp_CommunityHousingSetName`; definition exported to
+[`flows/community-housing-set-name.json`](flows/community-housing-set-name.json).
+
+- **Trigger:** `cp_communityhousing` added, or modified on `cp_client` / `cp_buildingaddress`.
+  Writing the name doesn't touch either column, so there is no loop.
+- **Client:** contact `fullname`; left blank if no client is set.
+- **Format:** the two parts joined with a single space and trimmed, so a missing client or
+  address leaves no stray space.
+- **Length:** truncated to 200 characters (column max).

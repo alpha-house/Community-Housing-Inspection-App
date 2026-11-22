@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{7e80f607-8713-4dc7-9b01-6d13f25e251f}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab name="general" id="c4268dec-926f-4105-b578-a75a2d43afe8" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_3" id="fe4f3425-4798-459b-ad2a-5e341ec994d7" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{ddfd661a-9e72-422d-9948-23140b8c553d}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{6a66264f-d628-417b-9a18-445d149ad3da}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4ec5df92-a429-4bc2-97e9-6cad7367630b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Name of Participant" languagecode="1033" />
+                        </labels>
+                        <control id="cp_nameofparticipant" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_nameofparticipant" disabled="false" />
+                      </cell>
+                      <cell id="{790712b9-6422-4c54-b83a-04e644209892}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Caseworker" languagecode="1033" />
+                        </labels>
+                        <control id="cp_caseworker" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_caseworker" disabled="false">
+                          <parameters>
+                            <DisableMru>true</DisableMru>
+                            <DefaultViewId>{27D918FD-9EFB-F011-8407-000D3AE9A57C}</DefaultViewId>
+                            <AvailableViewIds>{6732CEBD-6308-4270-8113-E388A6E66F2A},{27D918FD-9EFB-F011-8407-000D3AE9A57C},{6F98DB6E-74EC-402F-8CC1-D00BBD8B1BC7},{572521C4-2D79-477B-9F34-E601B159FF86}</AvailableViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cb6138f0-035a-4a01-9052-aded51766a2c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Team lead" languagecode="1033" />
+                        </labels>
+                        <control id="cp_teamlead" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_teamlead" disabled="false">
+                          <parameters>
+                            <DisableMru>true</DisableMru>
+                            <DefaultViewId>{27D918FD-9EFB-F011-8407-000D3AE9A57C}</DefaultViewId>
+                            <AvailableViewIds>{6732CEBD-6308-4270-8113-E388A6E66F2A},{27D918FD-9EFB-F011-8407-000D3AE9A57C},{6F98DB6E-74EC-402F-8CC1-D00BBD8B1BC7},{572521C4-2D79-477B-9F34-E601B159FF86}</AvailableViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell id="{cace307f-fec7-4273-a4ac-57cdf50418da}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Date Completed" languagecode="1033" />
+                        </labels>
+                        <control id="cp_datecompleted" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="cp_datecompleted" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5c207ed4-07f4-48ff-891c-80eac70be4bf}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Unit Number" languagecode="1033" />
+                        </labels>
+                        <control id="cp_unitnumber" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_unitnumber" disabled="false" />
+                      </cell>
+                      <cell id="{6bbf008e-1609-46a3-8e95-a2df01413e6d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="City" languagecode="1033" />
+                        </labels>
+                        <control id="cp_city" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cp_city" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{561a3194-dfa3-46fb-98b5-d97b18a05f8e}" locklevel="0" colspan="2" rowspan="4">
+                        <labels>
+                          <label description="Street Address" languagecode="1033" />
+                        </labels>
+                        <control id="cp_streetaddress" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_streetaddress" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+                <section name="tab_2_section_1" id="12cd7247-338d-4a67-8ec6-8ce24b263237" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{dddce13c-2060-4dcf-b546-f943d1302914}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{ad175bd3-b2bc-489b-ae3d-32fdf7743a91}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7f6b3c3-35d0-4eab-8842-a3a893359a19}" locklevel="0" colspan="2" rowspan="5">
+                        <labels>
+                          <label description="Additional Notes" languagecode="1033" />
+                        </labels>
+                        <control id="cp_additionalnotes" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="cp_additionalnotes" disabled="false" />
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row>
+                      <cell id="{13eac489-51c2-455b-8092-92cc0cdb9001}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Participant Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_participantsignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_participantsignature" disabled="false" uniqueid="{1aeba690-7ee4-404e-92ed-1674cebbf8b5}" />
+                      </cell>
+                      <cell id="{62935e98-0f42-4290-bdb6-790449352b77}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Caseworker Signature" languagecode="1033" />
+                        </labels>
+                        <control id="cp_caseworkersignature" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_caseworkersignature" disabled="false" uniqueid="{3ab89da2-1064-4b20-9df9-39eeb8f22e0c}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab verticallayout="true" id="{a73121ce-9a59-4ee1-9ca9-55962e5e6425}" IsUserDefined="1" name="inspection_details">
+          <labels>
+            <label description="Inspection Details" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{d7bbf6ee-6893-44e9-b472-a366cbcce690}" columns="1" name="general">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{8b49ee25-d7f4-4126-955b-98f644834a49}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{58f94b29-381e-4664-aa4c-6c4a646d39a5}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="Inspection PCF" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="inspection_pcf" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{daf93928-acf7-4d8b-a72e-aec405763676}">
+                          <parameters>
+                            <RecordsPerPage>50</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_inspectionitem_Inspection_cp_communityhousinginspection</RelationshipName>
+                            <TargetEntityType>cp_inspectionitem</TargetEntityType>
+                            <ViewId>{276CD4B4-4067-4435-BC73-9AECA9A4141D}</ViewId>
+                            <ViewIds>{276CD4B4-4067-4435-BC73-9AECA9A4141D}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="repair_request" id="2dd0fc3b-2f1b-4eba-97c2-494a15be9442" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Repair Request" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="repair_request_section_3" id="0fefe97e-99a7-477c-b051-c1224e97c666" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{a7706b66-a463-43b4-9893-fb8f2a59bdb2}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell locklevel="0" id="{e729c932-bdc7-454b-8df2-a9e1a972e8f4}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7b8baeb8-9971-422a-b19e-b6fb8f92da8e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Community Service Request" languagecode="1033" />
+                        </labels>
+                        <control id="cp_communityservicerequest" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_communityservicerequest" disabled="false">
+                          <parameters>
+                            <AvailableViewIds>{704AEE40-24C7-4AFE-AE04-86547D77A5BA}</AvailableViewIds>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DefaultViewId>{704AEE40-24C7-4AFE-AE04-86547D77A5BA}</DefaultViewId>
+                            <DependentAttributeName>cp_communityservicerequest.cp_communityhousinginspection</DependentAttributeName>
+                            <DependentAttributeType>cp_communityhousinginspection</DependentAttributeType>
+                            <FilterRelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</FilterRelationshipName>
+                          </parameters>
+                        </control>
+                      </cell>
+                      <cell locklevel="0" id="{bd8d3e4e-e66d-4153-aae6-bcfbc9d4afd5}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{d89f14d5-5f7c-4da2-a497-22c65db8853d}" colspan="2" rowspan="1">
+                        <labels>
+                          <label description="Community Service Request" languagecode="1033" />
+                        </labels>
+                        <control id="cp_communityservicerequest" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cp_communityservicerequest" uniqueid="{578e2f89-fbe9-4b9e-9975-2d38291236c7}">
+                          <parameters>
+                            <DefaultViewId>{AB3D87C1-4F61-4C66-831A-A0149A962779}</DefaultViewId>
+                            <AvailableViewIds>{704AEE40-24C7-4AFE-AE04-86547D77A5BA},{AB3D87C1-4F61-4C66-831A-A0149A962779},{D893A81D-BA97-4F8F-9F00-F71E4F596148}</AvailableViewIds>
+                            <DisableViewPicker>true</DisableViewPicker>
+                            <DependentAttributeName>cp_communityservicerequest.cp_communityhousinginspection</DependentAttributeName>
+                            <DependentAttributeType>cp_communityhousinginspection</DependentAttributeType>
+                            <FilterRelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</FilterRelationshipName>
+                            <useMainFormDialogForCreate>true</useMainFormDialogForCreate>
+                            <useMainFormDialogForEdit>true</useMainFormDialogForEdit>
+                            <DisableMru>true</DisableMru>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_3_section_1" id="f8400b33-538b-466e-9e6e-a6e95618e4b2" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{b729b8c9-bd4a-4da3-95bc-9c7f5ace3b73}" rowspan="4" colspan="1" auto="false">
+                        <labels>
+                          <label description="Community Service Request" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="community_service_request" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{a0864329-0390-41ae-a4b9-aca7b398bb5b}">
+                          <parameters>
+                            <RecordsPerPage>10</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>false</EnableQuickFind>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <EnableChartPicker>true</EnableChartPicker>
+                            <ChartGridMode>All</ChartGridMode>
+                            <RelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</RelationshipName>
+                            <TargetEntityType>cp_communityservicerequest</TargetEntityType>
+                            <ViewId>{AB3D87C1-4F61-4C66-831A-A0149A962779}</ViewId>
+                            <ViewIds>{AB3D87C1-4F61-4C66-831A-A0149A962779}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{8071ee0d-074d-433c-a4a4-40d39066edac}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{7889a1d3-3978-43f3-80da-a13c445b5284}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{627eb63b-72a3-4500-88c3-e47fff0a5c45}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{749a5aa5-b824-4c01-91a5-9a514f26acd5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{4a554b35-002c-4924-b066-38ae981c6ae3}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Community Housing Inspection Name" languagecode="1033" />
+              </labels>
+              <control id="header_cp_communityhousinginspectionname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_communityhousinginspectionname" />
+            </cell>
+            <cell id="{61bffadc-a17c-4ff8-9cf1-0c20504ad36f}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{138b7303-755b-4dec-985c-d5ff50b8c39a}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{12d94fec-7a15-4b08-93e9-c6f6c4d1c482}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{aca084fa-395c-4969-8683-ae6b88574325}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{23980146-bd06-4cd3-8b90-1276e4feb937}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{daf93928-acf7-4d8b-a72e-aec405763676}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters />
+          </customControl>
+          <customControl formFactor="0" name="cp_AlphaHouse.InspectionChecklist">
+            <parameters>
+              <data-set name="inspectionItems">
+                <ViewId>{276cd4b4-4067-4435-bc73-9aeca9a4141d}</ViewId>
+                <TargetEntityType>cp_inspectionitem</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cp_inspectionitem_Inspection_cp_communityhousinginspection</RelationshipName>
+                <FilteredViewIds>{276CD4B4-4067-4435-BC73-9AECA9A4141D}</FilteredViewIds>
+              </data-set>
+              <childEntityLogicalName type="SingleLine.Text" static="true">cp_inspectionitem</childEntityLogicalName>
+              <parentLookupFieldLogicalName type="SingleLine.Text" static="true">cp_inspection</parentLookupFieldLogicalName>
+              <parentLookupNavigationPropertyName type="SingleLine.Text" static="true">cp_Inspection</parentLookupNavigationPropertyName>
+              <lineNumberFieldLogicalName type="SingleLine.Text" static="true">cp_linenumber</lineNumberFieldLogicalName>
+              <areaFieldLogicalName type="SingleLine.Text" static="true">cp_area</areaFieldLogicalName>
+              <itemFieldLogicalName type="SingleLine.Text" static="true">cp_item</itemFieldLogicalName>
+              <questionFieldLogicalName type="SingleLine.Text" static="true">cp_specificinspectionquestions</questionFieldLogicalName>
+              <conditionFieldLogicalName type="SingleLine.Text" static="true">cp_condition</conditionFieldLogicalName>
+              <photoTakenFieldLogicalName type="SingleLine.Text" static="true">cp_phototaken</photoTakenFieldLogicalName>
+              <repairRequestFieldLogicalName type="SingleLine.Text" static="true">cp_repairrequestsubmitted</repairRequestFieldLogicalName>
+              <notesFieldLogicalName type="SingleLine.Text" static="true">cp_notesandexactlocation</notesFieldLogicalName>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="cp_AlphaHouse.InspectionChecklist">
+            <parameters>
+              <data-set name="inspectionItems">
+                <ViewId>{276cd4b4-4067-4435-bc73-9aeca9a4141d}</ViewId>
+                <TargetEntityType>cp_inspectionitem</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cp_inspectionitem_Inspection_cp_communityhousinginspection</RelationshipName>
+                <FilteredViewIds>{276CD4B4-4067-4435-BC73-9AECA9A4141D}</FilteredViewIds>
+              </data-set>
+              <childEntityLogicalName type="SingleLine.Text" static="true">cp_inspectionitem</childEntityLogicalName>
+              <parentLookupFieldLogicalName type="SingleLine.Text" static="true">cp_inspection</parentLookupFieldLogicalName>
+              <parentLookupNavigationPropertyName type="SingleLine.Text" static="true">cp_Inspection</parentLookupNavigationPropertyName>
+              <lineNumberFieldLogicalName type="SingleLine.Text" static="true">cp_linenumber</lineNumberFieldLogicalName>
+              <areaFieldLogicalName type="SingleLine.Text" static="true">cp_area</areaFieldLogicalName>
+              <itemFieldLogicalName type="SingleLine.Text" static="true">cp_item</itemFieldLogicalName>
+              <questionFieldLogicalName type="SingleLine.Text" static="true">cp_specificinspectionquestions</questionFieldLogicalName>
+              <conditionFieldLogicalName type="SingleLine.Text" static="true">cp_condition</conditionFieldLogicalName>
+              <photoTakenFieldLogicalName type="SingleLine.Text" static="true">cp_phototaken</photoTakenFieldLogicalName>
+              <repairRequestFieldLogicalName type="SingleLine.Text" static="true">cp_repairrequestsubmitted</repairRequestFieldLogicalName>
+              <notesFieldLogicalName type="SingleLine.Text" static="true">cp_notesandexactlocation</notesFieldLogicalName>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="cp_AlphaHouse.InspectionChecklist">
+            <parameters>
+              <data-set name="inspectionItems">
+                <ViewId>{276cd4b4-4067-4435-bc73-9aeca9a4141d}</ViewId>
+                <TargetEntityType>cp_inspectionitem</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cp_inspectionitem_Inspection_cp_communityhousinginspection</RelationshipName>
+                <FilteredViewIds>{276CD4B4-4067-4435-BC73-9AECA9A4141D}</FilteredViewIds>
+              </data-set>
+              <childEntityLogicalName type="SingleLine.Text" static="true">cp_inspectionitem</childEntityLogicalName>
+              <parentLookupFieldLogicalName type="SingleLine.Text" static="true">cp_inspection</parentLookupFieldLogicalName>
+              <parentLookupNavigationPropertyName type="SingleLine.Text" static="true">cp_Inspection</parentLookupNavigationPropertyName>
+              <lineNumberFieldLogicalName type="SingleLine.Text" static="true">cp_linenumber</lineNumberFieldLogicalName>
+              <areaFieldLogicalName type="SingleLine.Text" static="true">cp_area</areaFieldLogicalName>
+              <itemFieldLogicalName type="SingleLine.Text" static="true">cp_item</itemFieldLogicalName>
+              <questionFieldLogicalName type="SingleLine.Text" static="true">cp_specificinspectionquestions</questionFieldLogicalName>
+              <conditionFieldLogicalName type="SingleLine.Text" static="true">cp_condition</conditionFieldLogicalName>
+              <photoTakenFieldLogicalName type="SingleLine.Text" static="true">cp_phototaken</photoTakenFieldLogicalName>
+              <repairRequestFieldLogicalName type="SingleLine.Text" static="true">cp_repairrequestsubmitted</repairRequestFieldLogicalName>
+              <notesFieldLogicalName type="SingleLine.Text" static="true">cp_notesandexactlocation</notesFieldLogicalName>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{1aeba690-7ee4-404e-92ed-1674cebbf8b5}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_participantsignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_participantsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_participantsignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_participantsignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{3ab89da2-1064-4b20-9df9-39eeb8f22e0c}">
+          <customControl id="{E0DECE4B-6FC8-4A8F-A065-082708572369}">
+            <parameters>
+              <datafieldname>cp_caseworkersignature</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_caseworkersignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_caseworkersignature</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Signature.SignatureControl">
+            <parameters>
+              <value type="Multiple">cp_caseworkersignature</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{a0864329-0390-41ae-a4b9-aca7b398bb5b}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters>
+              <RecordsPerPage>10</RecordsPerPage>
+              <AutoExpand>Fixed</AutoExpand>
+              <EnableQuickFind>false</EnableQuickFind>
+              <EnableViewPicker>false</EnableViewPicker>
+              <EnableChartPicker>true</EnableChartPicker>
+              <ChartGridMode>All</ChartGridMode>
+              <RelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</RelationshipName>
+              <TargetEntityType>cp_communityservicerequest</TargetEntityType>
+              <ViewId>{AB3D87C1-4F61-4C66-831A-A0149A962779}</ViewId>
+              <ViewIds>{AB3D87C1-4F61-4C66-831A-A0149A962779}</ViewIds>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{ab3d87c1-4f61-4c66-831a-a0149a962779}</ViewId>
+                <TargetEntityType>cp_communityservicerequest</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</RelationshipName>
+                <FilteredViewIds>{AB3D87C1-4F61-4C66-831A-A0149A962779}</FilteredViewIds>
+              </data-set>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <HeadlessRendering type="Enum" static="true">no</HeadlessRendering>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">yes</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">no</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">yes</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">no</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">no</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">yes</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowColumnNamesForListView type="Enum" static="true">no</ShowColumnNamesForListView>
+              <EnableBandedRowsForListView type="Enum" static="true">no</EnableBandedRowsForListView>
+              <NumberOfListColumns type="Whole.None" static="true">3</NumberOfListColumns>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">yes</EnableStatusColumn>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{ab3d87c1-4f61-4c66-831a-a0149a962779}</ViewId>
+                <TargetEntityType>cp_communityservicerequest</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</RelationshipName>
+                <FilteredViewIds>{AB3D87C1-4F61-4C66-831A-A0149A962779}</FilteredViewIds>
+              </data-set>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <HeadlessRendering type="Enum" static="true">no</HeadlessRendering>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">yes</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">no</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">yes</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">no</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">no</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">yes</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowColumnNamesForListView type="Enum" static="true">no</ShowColumnNamesForListView>
+              <EnableBandedRowsForListView type="Enum" static="true">no</EnableBandedRowsForListView>
+              <NumberOfListColumns type="Whole.None" static="true">3</NumberOfListColumns>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">yes</EnableStatusColumn>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{ab3d87c1-4f61-4c66-831a-a0149a962779}</ViewId>
+                <TargetEntityType>cp_communityservicerequest</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</RelationshipName>
+                <FilteredViewIds>{AB3D87C1-4F61-4C66-831A-A0149A962779}</FilteredViewIds>
+              </data-set>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <HeadlessRendering type="Enum" static="true">no</HeadlessRendering>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">yes</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">no</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">yes</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">no</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">no</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">yes</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowColumnNamesForListView type="Enum" static="true">no</ShowColumnNamesForListView>
+              <EnableBandedRowsForListView type="Enum" static="true">no</EnableBandedRowsForListView>
+              <NumberOfListColumns type="Whole.None" static="true">3</NumberOfListColumns>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">yes</EnableStatusColumn>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{578e2f89-fbe9-4b9e-9975-2d38291236c7}">
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>cp_communityservicerequest</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+            <parameters>
+              <datafieldname>cp_communityservicerequest</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_communityservicerequest</BindAttribute>
+                <DefaultViewId>{AB3D87C1-4F61-4C66-831A-A0149A962779}</DefaultViewId>
+                <FilterRelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</FilterRelationshipName>
+                <DependentAttributeName>cp_communityservicerequest.cp_communityhousinginspection</DependentAttributeName>
+                <DependentAttributeType>cp_communityhousinginspection</DependentAttributeType>
+                <AvailableViewIds>{704AEE40-24C7-4AFE-AE04-86547D77A5BA},{AB3D87C1-4F61-4C66-831A-A0149A962779},{D893A81D-BA97-4F8F-9F00-F71E4F596148}</AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>true</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_communityservicerequest"&gt;711feeb4-f156-4bb5-b12e-6280110f795b&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_communityservicerequest</BindAttribute>
+                <DefaultViewId>{AB3D87C1-4F61-4C66-831A-A0149A962779}</DefaultViewId>
+                <FilterRelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</FilterRelationshipName>
+                <DependentAttributeName>cp_communityservicerequest.cp_communityhousinginspection</DependentAttributeName>
+                <DependentAttributeType>cp_communityhousinginspection</DependentAttributeType>
+                <AvailableViewIds>{704AEE40-24C7-4AFE-AE04-86547D77A5BA},{AB3D87C1-4F61-4C66-831A-A0149A962779},{D893A81D-BA97-4F8F-9F00-F71E4F596148}</AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>true</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_communityservicerequest"&gt;711feeb4-f156-4bb5-b12e-6280110f795b&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.ModelForm.ModelFormControl">
+            <parameters>
+              <value>
+                <BindAttribute>cp_communityservicerequest</BindAttribute>
+                <DefaultViewId>{AB3D87C1-4F61-4C66-831A-A0149A962779}</DefaultViewId>
+                <FilterRelationshipName>cp_communityservicerequest_CommunityHousingInspection_cp_communityhousinginspection</FilterRelationshipName>
+                <DependentAttributeName>cp_communityservicerequest.cp_communityhousinginspection</DependentAttributeName>
+                <DependentAttributeType>cp_communityhousinginspection</DependentAttributeType>
+                <AvailableViewIds>{704AEE40-24C7-4AFE-AE04-86547D77A5BA},{AB3D87C1-4F61-4C66-831A-A0149A962779},{D893A81D-BA97-4F8F-9F00-F71E4F596148}</AvailableViewIds>
+                <AllowFilterOff>false</AllowFilterOff>
+                <DisableQuickFind>false</DisableQuickFind>
+                <DisableViewPicker>true</DisableViewPicker>
+              </value>
+              <QuickForms type="SingleLine.Text" static="true">&lt;QuickForms&gt;&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cp_communityservicerequest"&gt;711feeb4-f156-4bb5-b12e-6280110f795b&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;&lt;/QuickForms&gt;</QuickForms>
+              <SaveMode type="Enum" static="true">0</SaveMode>
+              <EnableHighDensityPageHeader type="Enum" static="true">false</EnableHighDensityPageHeader>
+              <DisplayFormSelector type="Enum" static="true">false</DisplayFormSelector>
+              <AddToRecentItems type="Enum" static="true">false</AddToRecentItems>
+              <DisplayPopoutCommand type="Enum" static="true">false</DisplayPopoutCommand>
+              <DisplayNavigateBackCommand type="Enum" static="true">false</DisplayNavigateBackCommand>
+              <OverrideXrmPageByFormContext type="Enum" static="true">false</OverrideXrmPageByFormContext>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Inspection" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

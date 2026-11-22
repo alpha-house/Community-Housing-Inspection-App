@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="cp_CSREnvironmentUrlandAppID">
+  <defaultvalue>https://ahc-sandbox.crm3.dynamics.com/main.aspx?appid=8787c2ca-1182-f111-8076-7c1e5253346f&amp;pagetype=entityrecord&amp;etn=cp_communityservicerequest&amp;id=</defaultvalue>
+  <description default="Environment url and app id for the Community Housing Inspection app. Used by the cp Service Request Approval flow to link to the record.">
+    <label description="Environment url and app id for the Community Housing Inspection app. Used by the cp Service Request Approval flow to link to the record." languagecode="1033" />
+  </description>
+  <displayname default="CSR Environment Url and App ID">
+    <label description="CSR Environment Url and App ID" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.6</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

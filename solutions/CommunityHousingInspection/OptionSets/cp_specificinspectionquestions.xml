@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="cp_specificinspectionquestions" localizedName="Specific Inspection Questions" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Specific Inspection Questions" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="121570000" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Does door close fully? Scratches, dents,  peeling paint, loose hinges, damaged frame,  lock functioning properly?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570001" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Does key work? Deadbolt secure? Door latch aligned?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570002" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Turn on/off. Bulb burnt out? Fixture cracked, flickering, loose, missing cover?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570003" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Holes, dents, stains, cracks, peeling paint, water damage?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570004" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Scratches, stains, lifting, cracked tiles, soft spots, tripping hazards?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570005" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Tested and functioning? Battery chirping? Expiry date valid?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570006" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Carpet stains, burns, odours, lifting edges, scratches, cracked flooring?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570007" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Holes, dents, stains, nail holes, paint damage?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570008" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Water stains, cracks, peeling paint?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570009" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Open/close properly? Locks functioning? Cracked glass? Screen damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570010" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Blinds working? Missing slats? Damaged curtains?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570011" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="All bulbs functioning? Fixture damaged, flickering, loose?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570012" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Test outlets. Cover plates cracked/missing?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570013" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Airflow functioning? Vent blocked or damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570014" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Scratches, broken hinges, loose handles, water damage, shelves damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570015" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Burns, cuts, stains, lifting seams, cracks?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570016" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Drain properly? Leaks under sink? Caulking damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570017" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Hot/cold water working? Leaking? Loose faucet?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570018" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Test burners and oven. Missing knobs/racks? Excess grease? Broken glass?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570019" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Cooling properly? Shelves cracked? Door seals damaged? Clean inside?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570020" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Run test cycle. Leaks? Drain properly? Racks damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570021" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Water damage, cracked tiles, lifting flooring?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570022" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Any insects, droppings, food contamination signs?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570023" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Flush properly? Running continuously? Leaks at base? Loose seat?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570024" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Drain properly? Leaks? Cracks/chips?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570025" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Hot/cold functioning? Water pressure acceptable?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570026" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Caulking damaged? Cracked tile? Drain slow? Shower door damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570027" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Working properly? Loud noise? Dust buildup?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570028" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Soft spots, loose tiles, water damage?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570029" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Mold, mildew, peeling paint, water stains?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570030" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Carpet stains, burns, odours, scratches?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570031" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Holes, dents, marks, paint damage?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570032" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Locks working? Cracked glass? Screen damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570033" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Shelves secure? Doors functioning? Damage inside closet?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570034" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Bulb functioning? Fixture damaged?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570035" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Tested and operational?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570036" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Run test cycle? Excess noise/vibration? Leaks? Missing knobs?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570037" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Opens/closes properly? Lock functioning?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570038" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Cracks, loose boards, trip hazards?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570039" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Smoke, pet, mold, garbage, sewage smell?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570040" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Is unit free of clutter? Is it easily accessible in case of an emergency?" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

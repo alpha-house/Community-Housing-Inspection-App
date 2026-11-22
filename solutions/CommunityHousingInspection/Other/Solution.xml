@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.26112.137" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.26112.137" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.26113.00135">
+  <SolutionManifest>
+    <UniqueName>CommunityHousingInspection</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="Community Housing Inspection" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.7</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>Charles_Paulinus</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Core Platform" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="Shared platform publisher for Alpha House. Formerly displayed as Charles_Paulinus; the unique name is unchanged." languagecode="1033" />
+      </Descriptions>
+      <EMailAddress>charlesp@alphahousecalgary.com</EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>cp</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>12157</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country>Canada</Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="contact" behavior="1" />
+      <RootComponent type="1" schemaName="cp_communityhousing" behavior="0" />
+      <RootComponent type="1" schemaName="cp_communityhousinginspection" behavior="0" />
+      <RootComponent type="1" schemaName="cp_communitypartnercontact" behavior="0" />
+      <RootComponent type="1" schemaName="cp_communitypartnerinteraction" behavior="0" />
+      <RootComponent type="1" schemaName="cp_communityservicerequest" behavior="0" />
+      <RootComponent type="1" schemaName="cp_contactactivity" behavior="0" />
+      <RootComponent type="1" schemaName="cp_incidentreportapprover" behavior="0" />
+      <RootComponent type="1" schemaName="cp_inspectionitem" behavior="0" />
+      <RootComponent type="1" schemaName="cp_partnerorganisation" behavior="0" />
+      <RootComponent type="1" schemaName="cp_servicerequestapprover" behavior="0" />
+      <RootComponent type="1" schemaName="cp_staff" behavior="0" />
+      <RootComponent type="29" id="{006794bb-d3a6-f111-aaac-6045bd60d54a}" behavior="0" />
+      <RootComponent type="29" id="{263240ba-dca6-f111-aaac-6045bd60d54a}" behavior="0" />
+      <RootComponent type="29" id="{40ddfc22-4ad6-f111-84ea-7ced8da50854}" behavior="0" />
+      <RootComponent type="29" id="{839d1b45-67d5-f111-84ea-7c1e5253ff0a}" behavior="0" />
+      <RootComponent type="29" id="{bd7c870d-fc8c-f111-8076-002248b1af21}" behavior="0" />
+      <RootComponent type="29" id="{c62314a0-488c-f111-8076-6045bd60d54a}" behavior="0" />
+      <RootComponent type="29" id="{c8b8f359-d6a6-f111-aaac-6045bd60d54a}" behavior="0" />
+      <RootComponent type="29" id="{c9ebc6f4-b6e6-f111-84ea-3833c5f7a0bf}" behavior="0" />
+      <RootComponent type="29" id="{dc7815a8-eb89-f111-8077-7ced8da5852f}" behavior="0" />
+      <RootComponent type="431" schemaName="cp_communityservicerequest cp_photoofdamage1" behavior="0" />
+      <RootComponent type="431" schemaName="cp_communityservicerequest cp_photoofdamage2" behavior="0" />
+      <RootComponent type="431" schemaName="cp_communityservicerequest cp_photoofdamage3" behavior="0" />
+      <RootComponent type="432" schemaName="cp_communityservicerequest" behavior="0" />
+      <RootComponent type="62" schemaName="cp_CommunityHousingInspection" behavior="0" />
+      <RootComponent type="66" schemaName="cp_AlphaHouse.InspectionChecklist" behavior="0" />
+      <RootComponent type="80" schemaName="cp_CommunityHousingInspection" behavior="0" />
+      <RootComponent type="9" schemaName="cp_areachi" behavior="0" />
+      <RootComponent type="9" schemaName="cp_condition" behavior="0" />
+      <RootComponent type="9" schemaName="cp_engagementstatus" behavior="0" />
+      <RootComponent type="9" schemaName="cp_itemchi" behavior="0" />
+      <RootComponent type="9" schemaName="cp_paymentmethod" behavior="0" />
+      <RootComponent type="9" schemaName="cp_pod" behavior="0" />
+      <RootComponent type="9" schemaName="cp_relationshipcategory" behavior="0" />
+      <RootComponent type="9" schemaName="cp_repairrequeststatus" behavior="0" />
+      <RootComponent type="9" schemaName="cp_serviceupdatestatus" behavior="0" />
+      <RootComponent type="9" schemaName="cp_specificinspectionquestions" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_ahhelp" displayName="App Support Ticket" solution="Active" />
+        <Dependent type="62" schemaName="cp_CommunityHousingInspection" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_ahhelp" displayName="App Support Ticket" solution="Active" />
+        <Dependent type="80" schemaName="cp_CommunityHousingInspection" displayName="Community Housing Inspection" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_consent" displayName="Consent" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_intake" displayName="Intake" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_quarterlyreport" displayName="Quarterly Report" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="ahb_referral" displayName="Referral" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_assessment" displayName="Assessment" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_ciwawithdrawalassessment" displayName="CIWA Withdrawal Assessment" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_clientbelongings" displayName="Client Belongings" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_confidentialityagreement" displayName="Confidentiality Agreement" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_cowswithdrawalassessment" displayName="COWS Withdrawal Assessment" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_cp_admission" displayName="Admission" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_grievanceprocedure" displayName="Grievance Procedure" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_incidentreport" displayName="Incident Report" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_medicaltreatment" displayName="Medical Treatment" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_medicationadministration" displayName="Medication Administration" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_medicationreconciliation" displayName="Medication Reconciliation" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_shiftnote" displayName="Shift Note" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="cp_treatmentapplication" displayName="Treatment Application" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="20" displayName="AHC Beta Tester" solution="Active" id="{9dfdb7d6-5820-f011-9989-000d3af31ea9}" />
+        <Dependent type="80" schemaName="cp_CommunityHousingInspection" displayName="Community Housing Inspection" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="ahb_icon_staff" displayName="ahb_icon_staff" solution="Active" />
+        <Dependent type="1" schemaName="cp_staff" displayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)">
+          <package appName="AppModule Web Resources Package" version="2.5">AppModuleWebResources (2.5)</package>
+        </Required>
+        <Dependent type="80" schemaName="cp_CommunityHousingInspection" displayName="Community Housing Inspection" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2611.2006)">
+          <package appName="Base Custom Controls" version="9.0.2611.2006">BaseCustomControlsCore (9.0.2611.2006)</package>
+        </Required>
+        <Dependent type="26" schemaName="Community Service Requests" displayName="Community Service Requests" parentSchemaName="cp_communityservicerequest" parentDisplayName="Community Service Request" id="{ab3d87c1-4f61-4c66-831a-a0149a962779}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2611.2006)">
+          <package appName="Base Custom Controls" version="9.0.2611.2006">BaseCustomControlsCore (9.0.2611.2006)</package>
+        </Required>
+        <Dependent type="60" displayName="Inspection" parentDisplayName="Community Housing Inspection" id="{7e80f607-8713-4dc7-9b01-6d13f25e251f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2611.2006)">
+          <package appName="Base Custom Controls" version="9.0.2611.2006">BaseCustomControlsCore (9.0.2611.2006)</package>
+        </Required>
+        <Dependent type="60" displayName="Service Request Details" parentDisplayName="Community Service Request" id="{711feeb4-f156-4bb5-b12e-6280110f795b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.ModelForm.ModelFormControl" displayName="MscrmControls.ModelForm.ModelFormControl" solution="BaseCustomControlsCore (9.0.2611.2006)">
+          <package appName="Base Custom Controls" version="9.0.2611.2006">BaseCustomControlsCore (9.0.2611.2006)</package>
+        </Required>
+        <Dependent type="60" displayName="Inspection" parentDisplayName="Community Housing Inspection" id="{7e80f607-8713-4dc7-9b01-6d13f25e251f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="MscrmControls.Signature.SignatureControl" displayName="MscrmControls.Signature.SignatureControl" solution="CustomControlsCore (9.2.26112.00137)">
+          <package appName="Custom Controls Package" version="9.2.26112.00137">CustomControlsCore (9.2.26112.00137)</package>
+        </Required>
+        <Dependent type="60" displayName="Inspection" parentDisplayName="Community Housing Inspection" id="{7e80f607-8713-4dc7-9b01-6d13f25e251f}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="70" displayName="Staff Details - Managers" solution="Active" id="{433de662-a0cd-f111-a05d-7ced8da50854}" />
+        <Dependent type="70" displayName="Staff Details - Managers" id="{433de662-a0cd-f111-a05d-7ced8da50854}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="ahb_applist" displayName="Programs" solution="Active" />
+        <Dependent type="2" schemaName="cp_relatedahprograms" displayName="Related AH Program(s)" parentSchemaName="cp_communitypartnerinteraction" parentDisplayName="Community Partner Interaction" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="ahb_applist" displayName="Programs" solution="Active" />
+        <Dependent type="2" schemaName="cp_service" displayName="Service" parentSchemaName="cp_incidentreportapprover" parentDisplayName="Incident Report Approver" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_employmentstatus" displayName="Employment Status" solution="Active" />
+        <Dependent type="2" schemaName="cp_employmentstatus" displayName="Employment Status" parentSchemaName="cp_staff" parentDisplayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_irapprovalstatus" displayName="IR Approval Status" solution="Active" />
+        <Dependent type="2" schemaName="cp_srapprovalstatus" displayName="SR Approval Status" parentSchemaName="cp_communityservicerequest" parentDisplayName="Community Service Request" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="9" schemaName="cp_role" displayName="Role" solution="Active" />
+        <Dependent type="2" schemaName="cp_role" displayName="Role" parentSchemaName="cp_staff" parentDisplayName="Staff" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="Set Name - Community Service Request" id="{263240ba-dca6-f111-aaac-6045bd60d54a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="Community Service Request - Set Name" id="{40ddfc22-4ad6-f111-84ea-7ced8da50854}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="Service Request Approval" id="{839d1b45-67d5-f111-84ea-7c1e5253ff0a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="Community Housing Inspection - Document Upload" id="{c62314a0-488c-f111-8076-6045bd60d54a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="Community Housing - Set Name" id="{c9ebc6f4-b6e6-f111-84ea-3833c5f7a0bf}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedoffice365_75361" solution="Active" id.connectionreferencelogicalname="ahb_sharedoffice365_75361" />
+        <Dependent type="29" displayName="Service Request Approval" id="{839d1b45-67d5-f111-84ea-7c1e5253ff0a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="cp_sharedapprovals_32ba0" solution="Active" id.connectionreferencelogicalname="cp_sharedapprovals_32ba0" />
+        <Dependent type="29" displayName="Service Request Approval" id="{839d1b45-67d5-f111-84ea-7c1e5253ff0a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="cp_sharedsharepointonline_93f19" solution="Active" id.connectionreferencelogicalname="cp_sharedsharepointonline_93f19" />
+        <Dependent type="29" displayName="Community Housing Inspection - Document Upload" id="{c62314a0-488c-f111-8076-6045bd60d54a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.28)" id.uniquename="AppChannel">
+          <package appName="PowerAppsAppFramework Package" version="1.0.0.30">PowerAppsAppFramework_Anchor (1.0.0.30)</package>
+        </Required>
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=cp_CommunityHousingInspection,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="cp_CommunityHousingInspection" id.settingdefinitionid.uniquename="AppChannel" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

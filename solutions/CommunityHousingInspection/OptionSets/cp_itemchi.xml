@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="cp_itemchi" localizedName="Item-CHI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Item-CHI" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="121570000" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Front Door" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570001" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Locks &amp; Deadbolt" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570002" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Light Fixtures" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570003" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Walls &amp; Ceilings" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570004" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Flooring" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570005" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Smoke Detector" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570007" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Walls" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570008" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Ceiling" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570009" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Windows" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570012" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Electrical Outlets" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570010" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Window Coverings" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570013" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Heating Vent" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570014" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Cabinets" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570015" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Countertops" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570016" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Sink" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570017" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Faucet" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570018" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Stove/Oven" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570019" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Refrigerator" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570020" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Dishwasher" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570022" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Pest Evidence" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570023" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Toilet" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570024" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Tub/Shower" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570025" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Exhaust Fan" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570026" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Closet" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570027" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Washer/Dryer" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570028" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Door &amp; Lock" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570029" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Surface Condition" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570030" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Odours" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570031" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Cleaning" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="121570006" IsHidden="0">
+      <labels>
+        <label description="Walls/Ceiling" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

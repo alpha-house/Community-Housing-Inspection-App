@@ -1,0 +1,9 @@
+<dvtablesearchentity dvtablesearchentityid="f5b0074e-e6a6-f111-aaac-002248afb8ef">
+  <dvtablesearch>
+    <dvtablesearchid>ce839bf5-1182-f111-ab0e-7c1e528c9add</dvtablesearchid>
+  </dvtablesearch>
+  <entitylogicalname>cp_communityservicerequest</entitylogicalname>
+  <iscustomizable>1</iscustomizable>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</dvtablesearchentity>

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{e715b298-b2e6-f111-84ea-7c1e5253ff0a}</formid>
+    <IntroducedVersion>1.0.0.7</IntroducedVersion>
+    <FormPresentation>0</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form>
+      <tabs>
+        <tab name="general" verticallayout="true" id="{CBFE2ED8-1F2A-4829-9E70-C5D2D0314D4F}" IsUserDefined="1" showlabel="true" expanded="true">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="33%">
+              <sections>
+                <section name="client" showlabel="true" showbar="false" IsUserDefined="0" id="{3188196E-6AF5-47D1-A7A9-EFB8CCDF769B}" columns="1">
+                  <labels>
+                    <label description="Client" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{73D362E6-4851-4CE9-B33B-A9EDE6A802DE}" showlabel="true">
+                        <labels>
+                          <label description="Client" languagecode="1033" />
+                        </labels>
+                        <control id="cp_client" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_client" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4BE3A135-68D3-4846-9F6E-96D89BE3CD1A}" showlabel="true">
+                        <labels>
+                          <label description="Pod" languagecode="1033" />
+                        </labels>
+                        <control id="cp_pod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cp_pod" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{F8133C48-4099-46CC-913E-8F6F1A5F2550}" showlabel="true">
+                        <labels>
+                          <label description="Team Lead" languagecode="1033" />
+                        </labels>
+                        <control id="cp_teamlead" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cp_teamlead" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="unit" showlabel="true" showbar="false" IsUserDefined="0" id="{AA6D36FD-B0AF-4A37-BC8D-0B904CEF3BDE}" columns="1">
+                  <labels>
+                    <label description="Unit" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{C713C140-39AA-436B-A758-97BA9027D3E6}" showlabel="true">
+                        <labels>
+                          <label description="Building Address" languagecode="1033" />
+                        </labels>
+                        <control id="cp_buildingaddress" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_buildingaddress" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{37449CE2-B85C-45D2-99BF-E78005C83F14}" showlabel="true">
+                        <labels>
+                          <label description="Unit #" languagecode="1033" />
+                        </labels>
+                        <control id="cp_unitnumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_unitnumber" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{CCC4955B-AF9E-4F76-BD9A-C8241FFE8D0A}" showlabel="true">
+                        <labels>
+                          <label description="Move-in Date" languagecode="1033" />
+                        </labels>
+                        <control id="cp_moveindate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cp_moveindate" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{BA442899-0253-405A-B1D1-39DE6DBE9FEB}" showlabel="true">
+                        <labels>
+                          <label description="Move-in Date Other" languagecode="1033" />
+                        </labels>
+                        <control id="cp_moveindateother" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_moveindateother" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{56E29BE6-97BD-46F1-8332-D39E9CBCFBA3}" showlabel="true">
+                        <labels>
+                          <label description="Lease Expiry" languagecode="1033" />
+                        </labels>
+                        <control id="cp_leaseexpiry" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="cp_leaseexpiry" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8A1D0AF4-D4F4-4799-986C-FA7806F0F8CE}" showlabel="true">
+                        <labels>
+                          <label description="Lease Expiry Other" languagecode="1033" />
+                        </labels>
+                        <control id="cp_leaseexpiryother" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_leaseexpiryother" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="33%">
+              <sections>
+                <section name="rent_and_landlord" showlabel="true" showbar="false" IsUserDefined="0" id="{CE46A318-9A4F-4B67-8546-6EC9FA2B3790}" columns="1">
+                  <labels>
+                    <label description="Rent and Landlord" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{27B9DC2A-C68E-49DF-8874-68DBD87EA9E6}" showlabel="true">
+                        <labels>
+                          <label description="Landlord" languagecode="1033" />
+                        </labels>
+                        <control id="cp_landlord" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cp_landlord" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{52CDF031-CD5F-454B-8F83-6893AF390E60}" showlabel="true">
+                        <labels>
+                          <label description="Rent Amount" languagecode="1033" />
+                        </labels>
+                        <control id="cp_rentamount" classid="{533B9108-5A8B-42cb-BD37-52D1B8E7C741}" datafieldname="cp_rentamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{E9A365C8-54EF-4A74-A2E0-C07C1FD427A1}" showlabel="true">
+                        <labels>
+                          <label description="Client Amount" languagecode="1033" />
+                        </labels>
+                        <control id="cp_clientamount" classid="{533B9108-5A8B-42cb-BD37-52D1B8E7C741}" datafieldname="cp_clientamount" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9F8ED160-C1C9-4160-9C57-D809CD842148}" showlabel="true">
+                        <labels>
+                          <label description="Alpha Subsidy" languagecode="1033" />
+                        </labels>
+                        <control id="cp_alphasubsidy" classid="{533B9108-5A8B-42cb-BD37-52D1B8E7C741}" datafieldname="cp_alphasubsidy" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1F12FF1C-9A4C-4E5E-AE5B-807E9EF7710B}" showlabel="true">
+                        <labels>
+                          <label description="EFT/Cheque" languagecode="1033" />
+                        </labels>
+                        <control id="cp_paymentmethod" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="cp_paymentmethod" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Community Housing Quick Create" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Quick create form for Community Housing" languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

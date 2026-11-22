@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="cp_paymentmethod" localizedName="EFT/Cheque" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.7</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <displaynames>
+    <displayname description="EFT/Cheque" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="121570000" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="EFT" languagecode="1033" />
+      </labels>
+    </option>
+    <option value="121570001" ExternalValue="" IsHidden="0">
+      <labels>
+        <label description="Cheque" languagecode="1033" />
+      </labels>
+    </option>
+  </options>
+</optionset>
