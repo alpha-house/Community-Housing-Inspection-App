@@ -1,0 +1,1009 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_excelonlinebusiness": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cp_sharedexcelonlinebusiness_chi01"
+        },
+        "api": {
+          "name": "shared_excelonlinebusiness"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "ahb_sharedcommondataserviceforapps_c4d89"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "50818543-f337-406c-b150-00c3f999584c"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "number": {
+                  "title": "Row limit",
+                  "type": "number",
+                  "x-ms-dynamically-added": true,
+                  "description": "Rows to process from the top of the sheet (0 or blank = all rows). Use a small number to test.",
+                  "x-ms-content-hint": "NUMBER"
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_ClientId": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ac54727d-61da-4828-905c-a7a081065544"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ClientId",
+                "type": "string",
+                "value": ""
+              }
+            ]
+          }
+        },
+        "Initialize_TeamLeadId": {
+          "runAfter": {
+            "Initialize_ClientId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0e72f421-4c1b-48dc-a424-2246c54246a8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TeamLeadId",
+                "type": "string",
+                "value": ""
+              }
+            ]
+          }
+        },
+        "Initialize_MoveInDate": {
+          "runAfter": {
+            "Initialize_TeamLeadId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2077c9c0-d922-4aa6-bbb0-e5ac46a9e2a0"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "MoveInDate",
+                "type": "string",
+                "value": ""
+              }
+            ]
+          }
+        },
+        "Initialize_LeaseExpiry": {
+          "runAfter": {
+            "Initialize_MoveInDate": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "729af66b-478c-4a4a-8a2f-396ab21af6e4"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "LeaseExpiry",
+                "type": "string",
+                "value": ""
+              }
+            ]
+          }
+        },
+        "Initialize_ClientsCreated": {
+          "runAfter": {
+            "Initialize_LeaseExpiry": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6b9d97e9-b221-456d-8fcf-062e9efcc1e2"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ClientsCreated",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Initialize_HousingCreated": {
+          "runAfter": {
+            "Initialize_ClientsCreated": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "60a28572-e348-4b66-bdd9-4849fa1d3cc5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "HousingCreated",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Initialize_HousingUpdated": {
+          "runAfter": {
+            "Initialize_HousingCreated": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d7ce2dc4-2ff6-4a5e-b7a9-4d2b37bac2d1"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "HousingUpdated",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Initialize_TableName": {
+          "runAfter": {
+            "Initialize_HousingUpdated": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "34c4ca74-bb8b-4b9f-96f0-1b00cc7d65d0"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "TableName",
+                "type": "string",
+                "value": "CommunityHousingClients"
+              }
+            ]
+          }
+        },
+        "Get_tables": {
+          "runAfter": {
+            "Initialize_TableName": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9fdafbac-d753-499f-8a8e-abb76b9fdc14"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_excelonlinebusiness",
+              "operationId": "GetTables",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_excelonlinebusiness"
+            },
+            "parameters": {
+              "source": "sites/alphahousecalgaryca.sharepoint.com:/sites/AHCDocuments:",
+              "drive": "b!W8EhINQ-b0CgqsDwskkOcFTt3sUV65xGi0GMjIMnE_ZADLqGl4gBRb1EIzylsc8e",
+              "file": "01276ZQL5SXUJTFKSHI5HJ26X7OX4255J5"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Condition_table_missing": {
+          "actions": {
+            "Get_worksheets": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "863a4292-b7d9-4eb5-a4bb-7a9c2e1cfd1f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_excelonlinebusiness",
+                  "operationId": "GetAllWorksheets",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_excelonlinebusiness"
+                },
+                "parameters": {
+                  "source": "sites/alphahousecalgaryca.sharepoint.com:/sites/AHCDocuments:",
+                  "drive": "b!W8EhINQ-b0CgqsDwskkOcFTt3sUV65xGi0GMjIMnE_ZADLqGl4gBRb1EIzylsc8e",
+                  "file": "01276ZQL5SXUJTFKSHI5HJ26X7OX4255J5"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Create_table": {
+              "runAfter": {
+                "Get_worksheets": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "c55fd848-ba43-4df0-b843-21632dbb46ed"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_excelonlinebusiness",
+                  "operationId": "CreateTable",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_excelonlinebusiness"
+                },
+                "parameters": {
+                  "source": "sites/alphahousecalgaryca.sharepoint.com:/sites/AHCDocuments:",
+                  "drive": "b!W8EhINQ-b0CgqsDwskkOcFTt3sUV65xGi0GMjIMnE_ZADLqGl4gBRb1EIzylsc8e",
+                  "file": "01276ZQL5SXUJTFKSHI5HJ26X7OX4255J5",
+                  "table/TableName": "CommunityHousingClients",
+                  "table/Range": "@{concat('''', first(outputs('Get_worksheets')?['body/value'])?['name'], '''!A1:R1000')}"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Filter_existing_table": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@length(body('Filter_existing_table'))",
+              0
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a4f19907-4ab9-49e0-b04c-e5a94b0a9f09"
+          },
+          "type": "If"
+        },
+        "List_rows": {
+          "runAfter": {
+            "Condition_table_missing": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "080760c6-e065-4c99-964e-9562eeb28718"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_excelonlinebusiness",
+              "operationId": "GetItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_excelonlinebusiness"
+            },
+            "parameters": {
+              "source": "sites/alphahousecalgaryca.sharepoint.com:/sites/AHCDocuments:",
+              "drive": "b!W8EhINQ-b0CgqsDwskkOcFTt3sUV65xGi0GMjIMnE_ZADLqGl4gBRb1EIzylsc8e",
+              "file": "01276ZQL5SXUJTFKSHI5HJ26X7OX4255J5",
+              "table": "@variables('TableName')",
+              "dateTimeFormat": "ISO 8601"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "runtimeConfiguration": {
+            "paginationPolicy": {
+              "minimumItemCount": 5000
+            }
+          }
+        },
+        "Filter_blank_rows": {
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "112417fd-72d8-41a0-8ea8-b3c651351213"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@outputs('List_rows')?['body/value']",
+            "where": "@not(empty(concat(trim(string(coalesce(item()?['HMIS ID'], ''))), trim(string(coalesce(item()?['Client First Name'], ''))), trim(string(coalesce(item()?['Client Building Address'], ''))))))"
+          }
+        },
+        "Compose_rows_to_process": {
+          "runAfter": {
+            "Filter_blank_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af8c8f66-341e-4295-968c-404c795294c6"
+          },
+          "type": "Compose",
+          "inputs": "@if(greater(int(coalesce(triggerBody()?['number'], 0)), 0), take(body('Filter_blank_rows'), int(coalesce(triggerBody()?['number'], 0))), body('Filter_blank_rows'))"
+        },
+        "Apply_to_each_row": {
+          "foreach": "@outputs('Compose_rows_to_process')",
+          "actions": {
+            "Compose_Row": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "69e7e16c-0a01-4609-b791-87f402e23c87"
+              },
+              "type": "Compose",
+              "inputs": {
+                "hmis": "@replace(trim(replace(replace(string(coalesce(item()?['HMIS ID'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' ')), ' ', '')",
+                "first": "@trim(replace(replace(string(coalesce(item()?['Client First Name'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "last": "@trim(replace(replace(string(coalesce(item()?['Client Last Name'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "pod": "@toUpper(trim(replace(replace(string(coalesce(item()?['Pod'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' ')))",
+                "teamlead": "@trim(replace(replace(string(coalesce(item()?['Team Lead'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "unit": "@trim(replace(replace(string(coalesce(item()?['Client Unit _x0023_'], item()?['Client Unit #'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "address": "@trim(replace(replace(string(coalesce(item()?['Client Building Address'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "movein": "@trim(replace(replace(string(coalesce(item()?['Move-in Date'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "lease": "@trim(replace(replace(string(coalesce(item()?['Lease Expiry'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "rent": "@trim(replace(replace(string(coalesce(item()?[' Rent Amount  '], item()?['Rent Amount'], item()?[' Rent Amount'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "clientamount": "@trim(replace(replace(string(coalesce(item()?['  Client Amount  '], item()?['Client Amount'], item()?['  Client Amount'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "subsidy": "@trim(replace(replace(string(coalesce(item()?['  Alpha Subsidy  '], item()?['Alpha Subsidy'], item()?['  Alpha Subsidy'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "landlord": "@trim(replace(replace(string(coalesce(item()?['Landlord'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "maincontact": "@trim(replace(replace(string(coalesce(item()?['Main Contact'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "email": "@trim(replace(replace(string(coalesce(item()?['Email Address'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "paymentaddress": "@trim(replace(replace(string(coalesce(item()?['Payment Address'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "phone": "@trim(replace(replace(string(coalesce(item()?['Phone Number'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' '))",
+                "method": "@toUpper(trim(replace(replace(string(coalesce(item()?['EFT/Cheque'], '')), decodeUriComponent('%C2%A0'), ' '), decodeUriComponent('%09'), ' ')))"
+              }
+            },
+            "Reset_ClientId": {
+              "runAfter": {
+                "Compose_Row": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "79432156-ed75-440b-a4d3-72a791c25da2"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "ClientId",
+                "value": "@string('')"
+              }
+            },
+            "Reset_TeamLeadId": {
+              "runAfter": {
+                "Reset_ClientId": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "38daf59b-e0c2-43ff-971b-98f4e31cb253"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "TeamLeadId",
+                "value": "@string('')"
+              }
+            },
+            "Reset_MoveInDate": {
+              "runAfter": {
+                "Reset_TeamLeadId": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "65a404b7-7261-493a-bb14-8d04c627052b"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "MoveInDate",
+                "value": "@string('')"
+              }
+            },
+            "Reset_LeaseExpiry": {
+              "runAfter": {
+                "Reset_MoveInDate": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4c23437b-7d99-4891-99d8-9db0b1f16745"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "LeaseExpiry",
+                "value": "@string('')"
+              }
+            },
+            "Select_Movein_Tokens": {
+              "runAfter": {
+                "Reset_LeaseExpiry": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "dc45b007-8680-44db-af5b-3a2e1551bac8"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@split(replace(replace(replace(replace(replace(replace(replace(outputs('Compose_Row')?['movein'], 'Decmber', 'December'), 'Novemeber', 'November'), 'Novmeber', 'November'), 'Novvember', 'November'), 'Ocotber', 'October'), 'Septemebr', 'September'), 'Augusr', 'August'), ' ')",
+                "select": "@if(and(greater(length(item()), 2), contains('0123456789', substring(item(), 0, 1)), contains(createArray('st','nd','rd','th'), toLower(substring(item(), sub(length(item()), 2), 2)))), substring(item(), 0, sub(length(item()), 2)), item())"
+              }
+            },
+            "Try_Movein": {
+              "actions": {
+                "Compose_Movein_Parsed": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "f6aea924-b7c5-4613-b9d5-0553d3fd9487"
+                  },
+                  "type": "Compose",
+                  "inputs": "@if(isInt(join(body('Select_Movein_Tokens'), ' ')), addDays('1899-12-30T00:00:00Z', int(if(isInt(join(body('Select_Movein_Tokens'), ' ')), join(body('Select_Movein_Tokens'), ' '), '0')), 'yyyy-MM-dd'), formatDateTime(parseDateTime(if(isInt(join(body('Select_Movein_Tokens'), ' ')), '2000-01-01', join(body('Select_Movein_Tokens'), ' ')), 'en-US'), 'yyyy-MM-dd'))"
+                },
+                "Compose_Movein_Year_Check": {
+                  "runAfter": {
+                    "Compose_Movein_Parsed": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "9ddb0845-ad61-483f-ae0a-3f967e005df9"
+                  },
+                  "type": "Compose",
+                  "inputs": "@div(1, if(and(greaterOrEquals(int(substring(outputs('Compose_Movein_Parsed'), 0, 4)), 2000), lessOrEquals(int(substring(outputs('Compose_Movein_Parsed'), 0, 4)), 2040)), 1, 0))"
+                },
+                "Set_Movein": {
+                  "runAfter": {
+                    "Compose_Movein_Year_Check": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "2aa8a071-59b1-4bff-ab7c-a231aa71cf4e"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "MoveInDate",
+                    "value": "@outputs('Compose_Movein_Parsed')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Select_Movein_Tokens": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "db7dbe59-7b3a-4c9a-a1fb-1d3427dfd388"
+              },
+              "type": "Scope"
+            },
+            "Select_Lease_Tokens": {
+              "runAfter": {
+                "Try_Movein": [
+                  "Succeeded",
+                  "Failed",
+                  "Skipped",
+                  "TimedOut"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "635b33bb-1bd6-47a0-8869-6be0749d4215"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@split(replace(replace(replace(replace(replace(replace(replace(outputs('Compose_Row')?['lease'], 'Decmber', 'December'), 'Novemeber', 'November'), 'Novmeber', 'November'), 'Novvember', 'November'), 'Ocotber', 'October'), 'Septemebr', 'September'), 'Augusr', 'August'), ' ')",
+                "select": "@if(and(greater(length(item()), 2), contains('0123456789', substring(item(), 0, 1)), contains(createArray('st','nd','rd','th'), toLower(substring(item(), sub(length(item()), 2), 2)))), substring(item(), 0, sub(length(item()), 2)), item())"
+              }
+            },
+            "Try_Lease": {
+              "actions": {
+                "Compose_Lease_Parsed": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "e472b9f0-9611-46c5-abcd-edb56fe29872"
+                  },
+                  "type": "Compose",
+                  "inputs": "@if(isInt(join(body('Select_Lease_Tokens'), ' ')), addDays('1899-12-30T00:00:00Z', int(if(isInt(join(body('Select_Lease_Tokens'), ' ')), join(body('Select_Lease_Tokens'), ' '), '0')), 'yyyy-MM-dd'), formatDateTime(parseDateTime(if(isInt(join(body('Select_Lease_Tokens'), ' ')), '2000-01-01', join(body('Select_Lease_Tokens'), ' ')), 'en-US'), 'yyyy-MM-dd'))"
+                },
+                "Compose_Lease_Year_Check": {
+                  "runAfter": {
+                    "Compose_Lease_Parsed": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "70325d5f-7246-487b-97fb-e3b812d5a5ff"
+                  },
+                  "type": "Compose",
+                  "inputs": "@div(1, if(and(greaterOrEquals(int(substring(outputs('Compose_Lease_Parsed'), 0, 4)), 2000), lessOrEquals(int(substring(outputs('Compose_Lease_Parsed'), 0, 4)), 2040)), 1, 0))"
+                },
+                "Set_Lease": {
+                  "runAfter": {
+                    "Compose_Lease_Year_Check": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "abbbe3bb-7e96-4e86-9fdd-1847ac0b2284"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "LeaseExpiry",
+                    "value": "@outputs('Compose_Lease_Parsed')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Select_Lease_Tokens": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a8fbd08b-29ca-42bc-95d4-59600a7e1ddb"
+              },
+              "type": "Scope"
+            },
+            "Compose_Amounts": {
+              "runAfter": {
+                "Try_Lease": [
+                  "Succeeded",
+                  "Failed",
+                  "Skipped",
+                  "TimedOut"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "563fbe78-311c-4377-93c9-9222b0285614"
+              },
+              "type": "Compose",
+              "inputs": {
+                "rent": "@if(isFloat(replace(replace(first(split(outputs('Compose_Row')?['rent'], ' ')), '$', ''), ',', '')), float(if(isFloat(replace(replace(first(split(outputs('Compose_Row')?['rent'], ' ')), '$', ''), ',', '')), replace(replace(first(split(outputs('Compose_Row')?['rent'], ' ')), '$', ''), ',', ''), '0')), null)",
+                "clientamount": "@if(isFloat(replace(replace(first(split(outputs('Compose_Row')?['clientamount'], ' ')), '$', ''), ',', '')), float(if(isFloat(replace(replace(first(split(outputs('Compose_Row')?['clientamount'], ' ')), '$', ''), ',', '')), replace(replace(first(split(outputs('Compose_Row')?['clientamount'], ' ')), '$', ''), ',', ''), '0')), null)",
+                "subsidy": "@if(isFloat(replace(replace(first(split(outputs('Compose_Row')?['subsidy'], ' ')), '$', ''), ',', '')), float(if(isFloat(replace(replace(first(split(outputs('Compose_Row')?['subsidy'], ' ')), '$', ''), ',', '')), replace(replace(first(split(outputs('Compose_Row')?['subsidy'], ' ')), '$', ''), ',', ''), '0')), null)"
+              }
+            },
+            "Condition_has_team_lead": {
+              "actions": {
+                "List_team_lead": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "ef7be53b-fac1-4cea-b217-44c1985c08d1"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "cp_staffs",
+                      "$select": "cp_staffid",
+                      "$top": 2,
+                      "$filter": "@{concat('statecode eq 0 and startswith(cp_name,''', replace(outputs('Compose_Row')?['teamlead'], '''', ''''''), ''')')}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Condition_one_team_lead": {
+                  "actions": {
+                    "Set_TeamLeadId": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "2c171fe6-6489-49d4-a539-1ca2c823d270"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "TeamLeadId",
+                        "value": "@first(outputs('List_team_lead')?['body/value'])?['cp_staffid']"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_team_lead": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "equals": [
+                      "@length(outputs('List_team_lead')?['body/value'])",
+                      1
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f7faef8c-47f4-4883-9742-2f1eb74287fb"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "Compose_Amounts": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@empty(outputs('Compose_Row')?['teamlead'])",
+                    true
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "5d33c492-3e26-4c25-b759-5de71701a9a8"
+              },
+              "type": "If"
+            },
+            "Condition_has_HMIS_ID": {
+              "actions": {
+                "List_client_by_HMIS_ID": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "4fc58ac0-fa47-4009-b961-73ecc856bdd4"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "contacts",
+                      "$select": "contactid",
+                      "$top": 1,
+                      "$filter": "@{concat('cp_hmisfilenumber eq ''', replace(outputs('Compose_Row')?['hmis'], '''', ''''''), '''')}"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Condition_client_exists": {
+                  "actions": {
+                    "Set_existing_ClientId": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "87945a84-4c30-4243-8a81-b8ee5912004a"
+                      },
+                      "type": "SetVariable",
+                      "inputs": {
+                        "name": "ClientId",
+                        "value": "@first(outputs('List_client_by_HMIS_ID')?['body/value'])?['contactid']"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "List_client_by_HMIS_ID": [
+                      "Succeeded"
+                    ]
+                  },
+                  "else": {
+                    "actions": {
+                      "Add_client": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "f30cbef8-d288-45ea-93f1-ea543bcc9235"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataserviceforapps",
+                            "operationId": "CreateRecord",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                          },
+                          "parameters": {
+                            "entityName": "contacts",
+                            "item/firstname": "@if(empty(outputs('Compose_Row')?['first']), null, outputs('Compose_Row')?['first'])",
+                            "item/lastname": "@if(empty(outputs('Compose_Row')?['last']), '-', outputs('Compose_Row')?['last'])",
+                            "item/cp_hmisfilenumber": "@outputs('Compose_Row')?['hmis']",
+                            "item/cp_dateofbirth": "@null",
+                            "item/cp_dateofbirthunknown": true
+                          },
+                          "authentication": "@parameters('$authentication')"
+                        }
+                      },
+                      "Set_new_ClientId": {
+                        "runAfter": {
+                          "Add_client": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "51405241-0117-433a-a7ab-1b63469a9536"
+                        },
+                        "type": "SetVariable",
+                        "inputs": {
+                          "name": "ClientId",
+                          "value": "@outputs('Add_client')?['body/contactid']"
+                        }
+                      },
+                      "Increment_ClientsCreated": {
+                        "runAfter": {
+                          "Set_new_ClientId": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "2b55ed8e-39fd-4f50-8a2e-94c24c15a465"
+                        },
+                        "type": "IncrementVariable",
+                        "inputs": {
+                          "name": "ClientsCreated",
+                          "value": 1
+                        }
+                      }
+                    }
+                  },
+                  "expression": {
+                    "greater": [
+                      "@length(outputs('List_client_by_HMIS_ID')?['body/value'])",
+                      0
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "9dfa8ff5-a0b8-4627-8984-dcec327d3e0c"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "Condition_has_team_lead": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@empty(outputs('Compose_Row')?['hmis'])",
+                    true
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "35d390c9-e4f8-4e59-9940-d3a6847fff50"
+              },
+              "type": "If"
+            },
+            "List_existing_housing": {
+              "runAfter": {
+                "Condition_has_HMIS_ID": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "28a20a97-b4a6-4f54-b3c8-8956aee6f79a"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "cp_communityhousings",
+                  "$select": "cp_communityhousingid",
+                  "$top": 1,
+                  "$filter": "@{concat('statecode eq 0 and ', if(empty(variables('ClientId')), '_cp_client_value eq null', concat('_cp_client_value eq ', variables('ClientId'))), ' and ', if(empty(outputs('Compose_Row')?['address']), 'cp_buildingaddress eq null', concat('cp_buildingaddress eq ''', replace(outputs('Compose_Row')?['address'], '''', ''''''), '''')), if(empty(variables('ClientId')), if(empty(outputs('Compose_Row')?['unit']), ' and cp_unitnumber eq null', concat(' and cp_unitnumber eq ''', replace(outputs('Compose_Row')?['unit'], '''', ''''''), '''')), ''))}"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Condition_housing_exists": {
+              "actions": {
+                "Update_community_housing": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "420acf73-06a5-402b-952c-7d512761cfd4"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateOnlyRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "cp_communityhousings",
+                      "recordId": "@first(outputs('List_existing_housing')?['body/value'])?['cp_communityhousingid']",
+                      "item/cp_Client@odata.bind": "@if(empty(variables('ClientId')), null, concat('contacts(', variables('ClientId'), ')'))",
+                      "item/cp_TeamLead@odata.bind": "@if(empty(variables('TeamLeadId')), null, concat('cp_staffs(', variables('TeamLeadId'), ')'))",
+                      "item/cp_pod": "@json('{\"CORE\":121570000,\"HL\":121570001,\"NE\":121570002,\"NW\":121570003,\"SE\":121570004,\"SW\":121570005}')?[outputs('Compose_Row')?['pod']]",
+                      "item/cp_paymentmethod": "@json('{\"EFT\":121570000,\"CHEQUE\":121570001}')?[outputs('Compose_Row')?['method']]",
+                      "item/cp_unitnumber": "@if(empty(outputs('Compose_Row')?['unit']), null, outputs('Compose_Row')?['unit'])",
+                      "item/cp_buildingaddress": "@if(empty(outputs('Compose_Row')?['address']), null, outputs('Compose_Row')?['address'])",
+                      "item/cp_moveindate": "@if(empty(variables('MoveInDate')), null, variables('MoveInDate'))",
+                      "item/cp_moveindateother": "@if(and(empty(variables('MoveInDate')), not(empty(outputs('Compose_Row')?['movein']))), outputs('Compose_Row')?['movein'], null)",
+                      "item/cp_leaseexpiry": "@if(empty(variables('LeaseExpiry')), null, variables('LeaseExpiry'))",
+                      "item/cp_leaseexpiryother": "@if(and(empty(variables('LeaseExpiry')), not(empty(outputs('Compose_Row')?['lease']))), outputs('Compose_Row')?['lease'], null)",
+                      "item/cp_rentamount": "@outputs('Compose_Amounts')?['rent']",
+                      "item/cp_clientamount": "@outputs('Compose_Amounts')?['clientamount']",
+                      "item/cp_alphasubsidy": "@outputs('Compose_Amounts')?['subsidy']",
+                      "item/cp_landlord": "@if(empty(outputs('Compose_Row')?['landlord']), null, outputs('Compose_Row')?['landlord'])",
+                      "item/cp_maincontact": "@if(empty(outputs('Compose_Row')?['maincontact']), null, outputs('Compose_Row')?['maincontact'])",
+                      "item/cp_landlordemail": "@if(contains(outputs('Compose_Row')?['email'], '@'), outputs('Compose_Row')?['email'], null)",
+                      "item/cp_landlordphone": "@if(empty(outputs('Compose_Row')?['phone']), null, outputs('Compose_Row')?['phone'])",
+                      "item/cp_paymentaddress": "@if(empty(outputs('Compose_Row')?['paymentaddress']), null, outputs('Compose_Row')?['paymentaddress'])"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Increment_HousingUpdated": {
+                  "runAfter": {
+                    "Update_community_housing": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "dd29e99b-1abe-4313-b32c-b279e02a1f09"
+                  },
+                  "type": "IncrementVariable",
+                  "inputs": {
+                    "name": "HousingUpdated",
+                    "value": 1
+                  }
+                }
+              },
+              "runAfter": {
+                "List_existing_housing": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Add_community_housing": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "ced7668c-22fe-443d-95f2-498bfc378ba9"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "CreateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "cp_communityhousings",
+                        "item/cp_Client@odata.bind": "@if(empty(variables('ClientId')), null, concat('contacts(', variables('ClientId'), ')'))",
+                        "item/cp_TeamLead@odata.bind": "@if(empty(variables('TeamLeadId')), null, concat('cp_staffs(', variables('TeamLeadId'), ')'))",
+                        "item/cp_pod": "@json('{\"CORE\":121570000,\"HL\":121570001,\"NE\":121570002,\"NW\":121570003,\"SE\":121570004,\"SW\":121570005}')?[outputs('Compose_Row')?['pod']]",
+                        "item/cp_paymentmethod": "@json('{\"EFT\":121570000,\"CHEQUE\":121570001}')?[outputs('Compose_Row')?['method']]",
+                        "item/cp_unitnumber": "@if(empty(outputs('Compose_Row')?['unit']), null, outputs('Compose_Row')?['unit'])",
+                        "item/cp_buildingaddress": "@if(empty(outputs('Compose_Row')?['address']), null, outputs('Compose_Row')?['address'])",
+                        "item/cp_moveindate": "@if(empty(variables('MoveInDate')), null, variables('MoveInDate'))",
+                        "item/cp_moveindateother": "@if(and(empty(variables('MoveInDate')), not(empty(outputs('Compose_Row')?['movein']))), outputs('Compose_Row')?['movein'], null)",
+                        "item/cp_leaseexpiry": "@if(empty(variables('LeaseExpiry')), null, variables('LeaseExpiry'))",
+                        "item/cp_leaseexpiryother": "@if(and(empty(variables('LeaseExpiry')), not(empty(outputs('Compose_Row')?['lease']))), outputs('Compose_Row')?['lease'], null)",
+                        "item/cp_rentamount": "@outputs('Compose_Amounts')?['rent']",
+                        "item/cp_clientamount": "@outputs('Compose_Amounts')?['clientamount']",
+                        "item/cp_alphasubsidy": "@outputs('Compose_Amounts')?['subsidy']",
+                        "item/cp_landlord": "@if(empty(outputs('Compose_Row')?['landlord']), null, outputs('Compose_Row')?['landlord'])",
+                        "item/cp_maincontact": "@if(empty(outputs('Compose_Row')?['maincontact']), null, outputs('Compose_Row')?['maincontact'])",
+                        "item/cp_landlordemail": "@if(contains(outputs('Compose_Row')?['email'], '@'), outputs('Compose_Row')?['email'], null)",
+                        "item/cp_landlordphone": "@if(empty(outputs('Compose_Row')?['phone']), null, outputs('Compose_Row')?['phone'])",
+                        "item/cp_paymentaddress": "@if(empty(outputs('Compose_Row')?['paymentaddress']), null, outputs('Compose_Row')?['paymentaddress'])"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  },
+                  "Increment_HousingCreated": {
+                    "runAfter": {
+                      "Add_community_housing": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "26d65cc9-9a9a-4038-8aaa-f5bfbc675232"
+                    },
+                    "type": "IncrementVariable",
+                    "inputs": {
+                      "name": "HousingCreated",
+                      "value": 1
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "greater": [
+                  "@length(outputs('List_existing_housing')?['body/value'])",
+                  0
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "960981ba-a648-498b-9ff6-1afbdbc2e16d"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Compose_rows_to_process": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "501ce620-98ef-473a-94dd-c0d8a20179e7"
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 1
+            }
+          }
+        },
+        "Compose_summary": {
+          "runAfter": {
+            "Apply_to_each_row": [
+              "Succeeded",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7a7e3471-1cb3-49d1-a24b-97b77e294d44"
+          },
+          "type": "Compose",
+          "inputs": {
+            "rowsInSheet": "@length(body('Filter_blank_rows'))",
+            "rowsProcessed": "@length(outputs('Compose_rows_to_process'))",
+            "clientsCreated": "@variables('ClientsCreated')",
+            "housingCreated": "@variables('HousingCreated')",
+            "housingUpdated": "@variables('HousingUpdated')"
+          }
+        },
+        "Filter_existing_table": {
+          "runAfter": {
+            "Get_tables": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3eaa0149-260c-4199-91a1-9c690fff9536"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@coalesce(outputs('Get_tables')?['body/value'], createArray())",
+            "where": "@equals(item()?['name'], 'CommunityHousingClients')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

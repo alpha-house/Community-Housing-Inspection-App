@@ -210,3 +210,34 @@ Unique name `cp_CommunityHousingSetName`; definition exported to
 - **Format:** the two parts joined with a single space and trimmed, so a missing client or
   address leaves no stray space.
 - **Length:** truncated to 200 characters (column max).
+
+## 10. Spreadsheet import (`Update Community Housing and Client Records` flow)
+
+Instant (manual) flow that loads `community_housing_clients.xlsx` into Dataverse. Unique name
+`cp_UpdateCommunityHousingandClientRecords`; definition exported to
+[`flows/update-community-housing-and-client-records.json`](flows/update-community-housing-and-client-records.json).
+
+- **Source:** SharePoint site `AHCDocuments`, library *Community Housing Inspection*, file
+  `community_housing_clients.xlsx` (drive/file ids are fixed in the flow). Uses the Excel
+  connection reference `cp_sharedexcelonlinebusiness_chi01` and Dataverse reference
+  `ahb_sharedcommondataserviceforapps_c4d89`.
+- **Excel table:** the connector only reads named tables. If `CommunityHousingClients` is
+  missing, the flow creates it over `A1:R1000` of the first worksheet. Blank rows are filtered
+  out. The table name is passed through a variable so the flow can be saved before the table exists.
+- **Row limit input:** processes only the first N rows (0/blank = all) — for testing.
+- **Client:** matched on `contact.cp_hmisfilenumber` = HMIS ID (non-breaking spaces stripped). If
+  none, a contact is created with first/last name, HMIS ID and `cp_dateofbirthunknown = true`
+  (the sheet has no DOB; `cp_dateofbirth` is business-required, so the flow passes it as null).
+  Rows without an HMIS ID ("Alpha House" placeholder units) get a housing record with no client.
+- **Housing record:** updated if one exists for the same client + building address (placeholder
+  rows: no client + same address + unit), otherwise created. Re-running does not duplicate.
+- **Dates:** ISO dates, Excel serial numbers, and text like "July 1st 2025" / "Dec 1st 2024" /
+  "05/31/2025" (ordinal suffixes stripped, common month typos fixed) go to the date column;
+  anything unparseable or with a year outside 2000–2040 goes to the "Other" text column.
+- **Amounts:** the leading number of the cell (`$`, `,` and trailing notes dropped).
+- **Pod / EFT-Cheque:** mapped to `cp_pod` / `cp_paymentmethod` option values (case-insensitive).
+- **Team Lead:** set only when exactly one active `cp_staff` name starts with the sheet value.
+- **Landlord email:** only stored if it contains `@`.
+- **Run time:** ~5 minutes for the full sheet (rows processed sequentially).
+- **Summary:** the `Compose_summary` action reports rows processed, clients created and housing
+  records created/updated.

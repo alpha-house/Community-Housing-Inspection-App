@@ -6,7 +6,7 @@
       <LocalizedName description="Community Housing Inspection" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>1.0.0.7</Version>
+    <Version>1.0.0.8</Version>
     <Managed>0</Managed>
     <Publisher>
       <UniqueName>Charles_Paulinus</UniqueName>
@@ -96,6 +96,7 @@
       <RootComponent type="29" id="{263240ba-dca6-f111-aaac-6045bd60d54a}" behavior="0" />
       <RootComponent type="29" id="{40ddfc22-4ad6-f111-84ea-7ced8da50854}" behavior="0" />
       <RootComponent type="29" id="{839d1b45-67d5-f111-84ea-7c1e5253ff0a}" behavior="0" />
+      <RootComponent type="29" id="{8ae85034-5de7-f111-84ea-7ced8da50854}" behavior="0" />
       <RootComponent type="29" id="{bd7c870d-fc8c-f111-8076-002248b1af21}" behavior="0" />
       <RootComponent type="29" id="{c62314a0-488c-f111-8076-6045bd60d54a}" behavior="0" />
       <RootComponent type="29" id="{c8b8f359-d6a6-f111-aaac-6045bd60d54a}" behavior="0" />
@@ -275,6 +276,10 @@
       <MissingDependency>
         <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
         <Dependent type="29" displayName="Service Request Approval" id="{839d1b45-67d5-f111-84ea-7c1e5253ff0a}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
+        <Dependent type="29" displayName="Update Community Housing and Client Records" id="{8ae85034-5de7-f111-84ea-7ced8da50854}" />
       </MissingDependency>
       <MissingDependency>
         <Required type="connectionreference" displayName="ahb_sharedcommondataserviceforapps_c4d89" solution="Active" id.connectionreferencelogicalname="ahb_sharedcommondataserviceforapps_c4d89" />
